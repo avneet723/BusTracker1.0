@@ -19,12 +19,22 @@
 
             <!--Panorama item one-->
             <phone:PanoramaItem Header="Locations">
-                <Grid x:Name="DiningLocations"/>
+            	<Grid Opacity="0.5">
+            		<Button x:Name="TurnerPlace" Content="Tuner Place" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="195" Height="185"/>
+            		<Button x:Name="WestEnd" Content="West End" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,10,0,0" Width="195" Height="185"/>
+            		<Button x:Name="HokieGrill" Content="Hokie Grill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,255,0,0" Width="195" Height="185"/>
+            		<Button x:Name="Dietrick" Content="D2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,255,0,0" Width="195" Height="185"/>
+            	</Grid>
             </phone:PanoramaItem>
 
             <!--Panorama item two-->
             <phone:PanoramaItem Header="">
-                <Grid/>
+                <Grid Margin="0,87,0,0" Height="483">
+                	<Button x:Name="Owens" Content="Owens" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="195" Height="185"/>
+                	<Button x:Name="DietrickExpress" Content="DX" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,10,0,0" Height="185" Width="195"/>
+                	<Button x:Name="Squires" Content="Squires" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,255,0,0" Width="195" Height="185"/>
+                	<Button x:Name="Deets" Content="Deets" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,255,0,0" Width="195" Height="185"/>
+                </Grid>
             </phone:PanoramaItem>
         </phone:Panorama>
     </Grid>
