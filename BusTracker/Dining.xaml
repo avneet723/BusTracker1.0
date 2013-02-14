@@ -20,10 +20,10 @@
             <!--Panorama item one-->
             <phone:PanoramaItem Header="Locations">
             	<Grid Opacity="0.5">
-            		<Button x:Name="TurnerPlace" Content="Tuner Place" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="195" Height="185"/>
-            		<Button x:Name="WestEnd" Content="West End" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,10,0,0" Width="195" Height="185"/>
-            		<Button x:Name="HokieGrill" Content="Hokie Grill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,255,0,0" Width="195" Height="185"/>
-            		<Button x:Name="Dietrick" Content="D2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,255,0,0" Width="195" Height="185"/>
+                    <Button x:Name="TurnerPlace" Click="TurnerPlace_Click" Content="Tuner Place" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="195" Height="185"/>
+                    <Button x:Name="WestEnd" Click="WestEnd_Click" Content="West End" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,10,0,0" Width="195" Height="185"/>
+                    <Button x:Name="HokieGrill" Click="HokieGrill_Click" Content="Hokie Grill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,255,0,0" Width="195" Height="185"/>
+                    <Button x:Name="Dietrick" Click="Dietrick_Click" Content="D2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,255,0,0" Width="195" Height="185"/>
             	</Grid>
             </phone:PanoramaItem>
 

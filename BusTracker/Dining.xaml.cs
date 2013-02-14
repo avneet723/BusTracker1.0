@@ -16,5 +16,25 @@ namespace BusTracker
         {
             InitializeComponent();
         }
+
+        public void TurnerPlace_Click(object sender, RoutedEventArgs e)
+        {     
+            NavigationService.Navigate(new Uri("/NewScreen.xaml", UriKind.Relative));
+        }
+
+        public void WestEnd_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/NewScreen.xaml", UriKind.Relative));
+        }
+
+        public void HokieGrill_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/NewScreen.xaml", UriKind.Relative));
+        }
+
+        public void Dietrick_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/NewScreen.xaml", UriKind.Relative));
+        }
     }
 }
