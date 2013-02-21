@@ -22,6 +22,11 @@ namespace BusTracker
             //BuildLocalizedApplicationBar();
         }
 
+        private void GoToDining(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Dining.xaml", UriKind.Relative));
+        }
+
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{
