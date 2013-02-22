@@ -291,7 +291,6 @@
     <Content Include="Resources\logo_west_end.png" />
     <Content Include="Resources\logo_west_end_ex.png" />
     <Resource Include="btransit_logo.png" />
-    <Resource Include="Resources\lunapic_136149725692539_2.gif" />
     <Content Include="Resources\major_hall.jpg" />
     <Content Include="Resources\maps_background.jpg" />
     <Content Include="Resources\maroonBG.jpg" />
