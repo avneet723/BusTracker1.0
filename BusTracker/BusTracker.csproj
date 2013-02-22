@@ -25,7 +25,7 @@
     <ValidateXaml>true</ValidateXaml>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
-    <ExpressionBlendVersion>5.0.31017.0</ExpressionBlendVersion>
+    <ExpressionBlendVersion>5.0.30924.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -403,6 +403,7 @@
     <Content Include="Resources\x17.png" />
     <Content Include="Resources\x18.png" />
     <Content Include="Resources\x19.png" />
+    <Resource Include="slide_back.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
