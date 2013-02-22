@@ -34,7 +34,7 @@ namespace BusTracker
         //    ApplicationBar = new ApplicationBar();
 
         //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
+        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("./Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
         //    appBarButton.Text = AppResources.AppBarButtonText;
         //    ApplicationBar.Buttons.Add(appBarButton);
 
