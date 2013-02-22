@@ -191,6 +191,7 @@
     <Content Include="Resources\burrows_burleson_tennis_center.jpg" />
     <Content Include="Resources\burruss_hall.jpg" />
     <Content Include="Resources\BusBG.jpg" />
+    <Content Include="Resources\bus_bg.png" />
     <Content Include="Resources\campbell_hall.jpg" />
     <Content Include="Resources\cassell_coliseum.jpg" />
     <Content Include="Resources\cheatham_hall.jpg" />
@@ -289,6 +290,8 @@
     <Content Include="Resources\logo_soup_garden_ex.png" />
     <Content Include="Resources\logo_west_end.png" />
     <Content Include="Resources\logo_west_end_ex.png" />
+    <Resource Include="btransit_logo.png" />
+    <Resource Include="Resources\lunapic_136149725692539_2.gif" />
     <Content Include="Resources\major_hall.jpg" />
     <Content Include="Resources\maps_background.jpg" />
     <Content Include="Resources\maroonBG.jpg" />
@@ -373,6 +376,7 @@
     <Content Include="Resources\university.png" />
     <Content Include="Resources\university_bookstore.jpg" />
     <Content Include="Resources\university_club.jpg" />
+    <Resource Include="bus_bg.png" />
     <Resource Include="Resources\unknown.gif" />
     <Content Include="Resources\vawter_hall.jpg" />
     <Content Include="Resources\virginia_tech.png" />
@@ -403,7 +407,6 @@
     <Content Include="Resources\x17.png" />
     <Content Include="Resources\x18.png" />
     <Content Include="Resources\x19.png" />
-    <Resource Include="slide_back.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
