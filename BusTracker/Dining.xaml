@@ -1,0 +1,123 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions" x:Name="DiningLocationsPage"
+    x:Class="BusTracker.Dining"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot contains the root grid where all other page content is placed-->
+    <Grid x:Name="LayoutRoot">
+        <phone:Panorama Title="Dining">
+        	<phone:Panorama.Background>
+        		<ImageBrush ImageSource="slide_back.png" Opacity="0.75"/>
+        	</phone:Panorama.Background>
+
+            <!--Panorama item one-->
+            <phone:PanoramaItem VerticalAlignment="Bottom" Height="597">
+            	<Grid Margin="0,0,0,34" VerticalAlignment="Bottom">
+            		<Grid.ColumnDefinitions>
+            			<ColumnDefinition Width="69*"/>
+            			<ColumnDefinition Width="71*"/>
+            		</Grid.ColumnDefinitions>
+                    <Button x:Name="TurnerPlace" Click="TurnerPlace_Click" Content="Turner Place" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="195" Height="185">
+                    	<Button.Background>
+                    		<ImageBrush ImageSource="./Resources/turner_place.jpg"/>
+                    	</Button.Background>
+                    	<i:Interaction.Triggers>
+                    		<i:EventTrigger EventName="Click">
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    		</i:EventTrigger>
+                    	</i:Interaction.Triggers>
+                    </Button>
+                    <Button x:Name="WestEnd" Click="WestEnd_Click" Content="West End" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7.966,10,0,0" Width="195" Height="185" Grid.Column="1">
+                    	<i:Interaction.Triggers>
+                    		<i:EventTrigger EventName="Click">
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    		</i:EventTrigger>
+                    	</i:Interaction.Triggers>
+						<Button.Background>
+            				<ImageBrush ImageSource="./Resources/west_end.jpg"/>
+            			</Button.Background>
+					</Button>
+                    <Button x:Name="HokieGrill" Click="HokieGrill_Click" Content="Hokie Grill" VerticalContentAlignment="Top" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,255,0,0" Width="195" Height="185">
+                    	<i:Interaction.Triggers>
+                    		<i:EventTrigger EventName="Click">
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    		</i:EventTrigger>
+                    	</i:Interaction.Triggers>
+						<Button.Background>
+            				<ImageBrush ImageSource="./Resources/hokie_grill.jpg"/>
+            			</Button.Background>
+					</Button>
+                    <Button x:Name="Dietrick" Click="Dietrick_Click" Content="D2" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7.966,255,0,0" Width="195" Height="185" Grid.Column="1">
+                    	<i:Interaction.Triggers>
+                    		<i:EventTrigger EventName="Click">
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    		</i:EventTrigger>
+                    	</i:Interaction.Triggers>
+						<Button.Background>
+            				<ImageBrush ImageSource="./Resources/d2.jpg"/>
+            			</Button.Background>
+					</Button>
+                    <TextBlock Height="91" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,-127,0,0" Text="Locations" FontSize="64" HorizontalAlignment="Left" Width="279" RenderTransformOrigin="0.502,0.473" Grid.ColumnSpan="2"/>
+				</Grid>
+            </phone:PanoramaItem>
+
+            <!--Panorama item two-->
+            <phone:PanoramaItem VerticalAlignment="Bottom" Height="597">
+                <Grid Margin="0,0,0,34" VerticalAlignment="Bottom">
+                    <Button x:Name="Owens" Content="Owens" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="195" Height="185">
+                    	<i:Interaction.Triggers>
+                    		<i:EventTrigger EventName="Click">
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    		</i:EventTrigger>
+                    	</i:Interaction.Triggers>
+                        <Button.Background>
+                            <ImageBrush ImageSource="./Resources/owens_hall.jpg"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="DietrickExpress" Content="DX" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,10,0,0" Height="185" Width="195">
+                    	<i:Interaction.Triggers>
+                    		<i:EventTrigger EventName="Click">
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    		</i:EventTrigger>
+                    	</i:Interaction.Triggers>
+                        <Button.Background>
+                            <ImageBrush ImageSource="./Resources/d2.jpg"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Squires" Content="Squires" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,255,0,0" Width="195" Height="185">
+                    	<i:Interaction.Triggers>
+                    		<i:EventTrigger EventName="Click">
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    		</i:EventTrigger>
+                    	</i:Interaction.Triggers>
+                        <Button.Background>
+                            <ImageBrush ImageSource="./Resources/squires_student_center.jpg"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Deets" Content="Deets" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,255,0,0" Width="195" Height="185">
+                    	<i:Interaction.Triggers>
+                    		<i:EventTrigger EventName="Click">
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    		</i:EventTrigger>
+                    	</i:Interaction.Triggers>
+                        <Button.Background>
+                            <ImageBrush ImageSource="./Resources/d2.jpg"/>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+            </phone:PanoramaItem>
+        </phone:Panorama>
+    </Grid>
+
+</phone:PhoneApplicationPage>

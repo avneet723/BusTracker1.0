@@ -15,7 +15,10 @@
 
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot">
-        <phone:Panorama Title="Blacksburg Transit" Loaded="Panorama_Loaded_1">
+        <phone:Panorama Title="BTransit" Loaded="Panorama_Loaded_1">
+        	<phone:Panorama.Background>
+        		<ImageBrush Stretch="Fill" ImageSource="bus_bg.png" Opacity="0.805"/>
+        	</phone:Panorama.Background>
 
             <!--Panorama item one-->
             <phone:PanoramaItem Header="Trip Planner">

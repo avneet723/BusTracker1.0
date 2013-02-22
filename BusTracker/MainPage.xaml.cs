@@ -22,6 +22,11 @@ namespace BusTracker
             //BuildLocalizedApplicationBar();
         }
 
+        private void GoToDining(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Dining.xaml", UriKind.Relative));
+        }
+
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{
@@ -29,7 +34,7 @@ namespace BusTracker
         //    ApplicationBar = new ApplicationBar();
 
         //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
+        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("./Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
         //    appBarButton.Text = AppResources.AppBarButtonText;
         //    ApplicationBar.Buttons.Add(appBarButton);
 
