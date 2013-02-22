@@ -23,7 +23,7 @@
             	<Grid Margin="0" VerticalAlignment="Bottom">
                     <Button x:Name="TurnerPlace" Click="TurnerPlace_Click" Content="Turner Place" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="195" Height="185">
                     	<Button.Background>
-                    		<ImageBrush ImageSource="./Assets/turner_place.jpg"/>
+                    		<ImageBrush ImageSource="./Resources/turner_place.jpg"/>
                     	</Button.Background>
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
@@ -38,7 +38,7 @@
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
 						<Button.Background>
-            				<ImageBrush ImageSource="./Assets/west_end.jpg"/>
+            				<ImageBrush ImageSource="./Resources/west_end.jpg"/>
             			</Button.Background>
 					</Button>
                     <Button x:Name="HokieGrill" Click="HokieGrill_Click" Content="Hokie Grill" VerticalContentAlignment="Top" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,255,0,0" Width="195" Height="185">
@@ -48,7 +48,7 @@
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
 						<Button.Background>
-            				<ImageBrush ImageSource="./Assets/hokie_grill.jpg"/>
+            				<ImageBrush ImageSource="./Resources/hokie_grill.jpg"/>
             			</Button.Background>
 					</Button>
                     <Button x:Name="Dietrick" Click="Dietrick_Click" Content="D2" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,255,0,0" Width="195" Height="185">
@@ -58,7 +58,7 @@
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
 						<Button.Background>
-            				<ImageBrush ImageSource="./Assets/d2.jpg"/>
+            				<ImageBrush ImageSource="./Resources/d2.jpg"/>
             			</Button.Background>
 					</Button>
                     <TextBlock Height="91" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,-128,0,0" Text="Locations" FontSize="64" HorizontalAlignment="Left" Width="279" RenderTransformOrigin="0.502,0.473"/>
@@ -75,7 +75,7 @@
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
                         <Button.Background>
-                            <ImageBrush ImageSource="./Assets/owens_hall.jpg"/>
+                            <ImageBrush ImageSource="./Resources/owens_hall.jpg"/>
                         </Button.Background>
                     </Button>
                     <Button x:Name="DietrickExpress" Content="DX" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,10,0,0" Height="185" Width="195">
@@ -85,7 +85,7 @@
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
                         <Button.Background>
-                            <ImageBrush ImageSource="./Assets/d2.jpg"/>
+                            <ImageBrush ImageSource="./Resources/d2.jpg"/>
                         </Button.Background>
                     </Button>
                     <Button x:Name="Squires" Content="Squires" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,255,0,0" Width="195" Height="185">
@@ -95,7 +95,7 @@
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
                         <Button.Background>
-                            <ImageBrush ImageSource="./Assets/squires_student_center.jpg"/>
+                            <ImageBrush ImageSource="./Resources/squires_student_center.jpg"/>
                         </Button.Background>
                     </Button>
                     <Button x:Name="Deets" Content="Deets" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,255,0,0" Width="195" Height="185">
@@ -105,7 +105,7 @@
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
                         <Button.Background>
-                            <ImageBrush ImageSource="./Assets/d2.jpg"/>
+                            <ImageBrush ImageSource="./Resources/d2.jpg"/>
                         </Button.Background>
                     </Button>
                 </Grid>
