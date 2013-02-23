@@ -116,6 +116,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Turner_Text.xaml.cs">
+      <DependentUpon>Turner_Text.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -139,6 +142,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Nutrition.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Turner_Text.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -291,7 +298,6 @@
     <Content Include="Resources\logo_west_end.png" />
     <Content Include="Resources\logo_west_end_ex.png" />
     <Resource Include="btransit_logo.png" />
-    <Resource Include="Resources\lunapic_136149725692539_2.gif" />
     <Content Include="Resources\major_hall.jpg" />
     <Content Include="Resources\maps_background.jpg" />
     <Content Include="Resources\maroonBG.jpg" />
@@ -407,6 +413,7 @@
     <Content Include="Resources\x17.png" />
     <Content Include="Resources\x18.png" />
     <Content Include="Resources\x19.png" />
+    <Resource Include="slide_back.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">

@@ -15,6 +15,7 @@ namespace BusTracker
         public Dining()
         {
             InitializeComponent();
+            Set_Open_Close();
         }
 
         public void TurnerPlace_Click(object sender, RoutedEventArgs e)
@@ -35,6 +36,12 @@ namespace BusTracker
         public void Dietrick_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/DiningInfo.xaml", UriKind.Relative));
+        }
+
+        public void Set_Open_Close()
+        {
+            DateTime now = DateTime.Now;
+            System.Diagnostics.Debug.WriteLine("Hour: " + now.Hour + " Minutes: " + now.Minute + " Seconds: " + now.Second);
         }
     }
 }
