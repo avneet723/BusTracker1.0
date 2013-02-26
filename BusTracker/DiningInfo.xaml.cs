@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -39,9 +40,13 @@ namespace BusTracker
         private void wc_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
         {
 
-            try
+           try
             {
-                MessageBox.Show(e.Result);
+                 HtmlAgilityPack.HtmlDocument HD = new HtmlAgilityPack.HtmlDocument();
+                 HD.Load(new StringReader(e.Result));
+                 var bodyNode = HD.DocumentNode.SelectSingleNode("//body");
+                 string body = bodyNode.InnerText.Trim();
+                 MessageBox.Show(body);
             }
             catch (System.Exception ex)
             {
