@@ -19,11 +19,13 @@ namespace BusTracker
 
         public void button1_Click(object sender, RoutedEventArgs e)
         {
-
+            // Current date and time
+            DateTime now = DateTime.Now;
             string url = "https://secure.hosting.vt.edu/www.dining.vt.edu/hours/index.php?d=t";
             var uri = new Uri(url, UriKind.Absolute);
 
-            string data = "d_month=" + 3 + "&d_day=" + 3 + "&d_year=" + 2013 + "&view=View+Date";
+            // Adding today's date
+            string data = "d_month=" + now.Month + "&d_day=" + now.Day + "&d_year=" + now.Year + "&view=View+Date";
 
             var wc = new WebClient();
 
@@ -32,7 +34,6 @@ namespace BusTracker
             wc.Headers["Content-Type"] = "application/x-www-form-urlencoded";
             wc.Headers["Content-Length"] = data.Length.ToString();
             wc.UploadStringAsync(uri, "POST", data);
-
         }
 
         private void wc_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)

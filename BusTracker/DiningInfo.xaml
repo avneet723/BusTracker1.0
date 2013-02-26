@@ -20,7 +20,7 @@
             <!--Panorama item one-->
             <phone:PanoramaItem x:Name="DiningHours" Header="Dining Hours" Height="607" Width="432">
                 <Grid Margin="0,0,-12,70">
-                    <Button x:Name="button1" Click="button1_Click" Content="What is open on 3/3/2013?&#xD;&#xA;(Need to Parse HTML)" VerticalAlignment="Top" Margin="30,153,0,0" Height="135" HorizontalAlignment="Left" Width="359"/>
+                    <Button x:Name="button1" Click="button1_Click" Content="Hours for today?&#xD;&#xA;(Need to Parse HTML)" VerticalAlignment="Top" Margin="30,153,0,0" Height="135" HorizontalAlignment="Left" Width="359"/>
                     <ListBox x:Name="Dining_Halls" Margin="30,31,166,196">
                     	<ListBoxItem x:Name="D2_Select" Content="D2"/>
                     	<ListBoxItem x:Name="Hokie_Grill_Select" Content="Hokie Grill"/></ListBox>
