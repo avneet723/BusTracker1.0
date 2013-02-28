@@ -8,11 +8,13 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using BusTracker.Resources;
+using LinqToTwitter;
 
 namespace BusTracker
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        public static ITwitterAuthorizer Authorizer { get; set; }
         // Constructor
         public MainPage()
         {
@@ -21,6 +23,36 @@ namespace BusTracker
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ITwitterAuthorizer auth = SharedState.Authorizer;
+
+            if (auth == null || !auth.IsAuthorized)
+            {
+                NavigationService.Navigate(new Uri("/OAuth.xaml", UriKind.Relative));
+            }
+            else {
+                var twitterCtx = new TwitterContext(auth);
+
+                var queryResults =
+                    from search in twitterCtx.Search
+                    where search.Type == SearchType.Search &&
+                          search.Query == "microsoft"
+                    select search;
+
+                display.Text = queryResults.Count().ToString();
+                int index;
+                for (index = 0; index < queryResults.Count(); index++)
+                {
+                    display.Text = queryResults.ElementAt(index).ToString();
+                }
+            }
+
+
+        }
+
+
 
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
