@@ -27,18 +27,18 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="10,0,14,0">
-        	<Button Content="4Help Computer Consulting" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="225"/>
-        	<Button Content="Dean of Students" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="225"/>
-        	<Button Content="Environmental Health and Safety Services" HorizontalAlignment="Left" Margin="221,72,0,0" VerticalAlignment="Top" Width="225"/>
-        	<Button Content="Facilities Services" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="225"/>
-        	<Button Content="Registar's Office" HorizontalAlignment="Left" Margin="221,144,0,0" VerticalAlignment="Top" Width="225"/>
-        	<Button Content="Safe Ride" HorizontalAlignment="Left" Margin="10,216,0,0" VerticalAlignment="Top" Width="225"/>
-        	<Button Content="Schiffert Health Center" HorizontalAlignment="Left" Margin="221,216,0,0" VerticalAlignment="Top" Width="225"/>
-        	<Button Content="Cook Counceling Center" HorizontalAlignment="Left" Margin="221,0,0,0" VerticalAlignment="Top" Width="225"/>
-        	<Button Content="VT Parking Services" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Width="225"/>
-        	<Button Content="VT Police" HorizontalAlignment="Left" Margin="221,288,0,0" VerticalAlignment="Top" Width="225"/>
-        	<Button Content="VT Recreational Sports" HorizontalAlignment="Left" Margin="10,360,0,0" VerticalAlignment="Top" Width="225"/>
-        	<Button Content="Women's Center" HorizontalAlignment="Left" Margin="221,360,0,0" VerticalAlignment="Top" Width="225"/>
+            <Button Content="4Help Computer Consulting" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="225"/>
+            <Button Content="Dean of Students" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="225"/>
+            <Button Content="Environmental Health and Safety Services" HorizontalAlignment="Left" Margin="221,72,0,0" VerticalAlignment="Top" Width="225"/>
+            <Button Content="Facilities Services" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="225"/>
+            <Button Content="Registar's Office" HorizontalAlignment="Left" Margin="221,144,0,0" VerticalAlignment="Top" Width="225"/>
+            <Button Content="Safe Ride" HorizontalAlignment="Left" Margin="10,216,0,0" VerticalAlignment="Top" Width="225"/>
+            <Button Content="Schiffert Health Center" HorizontalAlignment="Left" Margin="221,216,0,0" VerticalAlignment="Top" Width="225"/>
+            <Button Content="Cook Counceling Center" HorizontalAlignment="Left" Margin="221,0,0,0" VerticalAlignment="Top" Width="225"/>
+            <Button Content="VT Parking Services" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Width="225"/>
+            <Button Content="VT Police" HorizontalAlignment="Left" Margin="221,288,0,0" VerticalAlignment="Top" Width="225"/>
+            <Button Content="VT Recreational Sports" HorizontalAlignment="Left" Margin="10,360,0,0" VerticalAlignment="Top" Width="225"/>
+            <Button Content="Women's Center" HorizontalAlignment="Left" Margin="221,360,0,0" VerticalAlignment="Top" Width="225"/>
         </Grid>
     </Grid>
 

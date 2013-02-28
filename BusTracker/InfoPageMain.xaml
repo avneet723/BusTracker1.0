@@ -29,15 +29,17 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-        	<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="436"/>
-        	<Button Content="Contact  Information" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="436" Height="100">
-        		<i:Interaction.Triggers>
-        			<i:EventTrigger EventName="Click">
-        				<ec:NavigateToPageAction TargetPage="/ContactInfo.xaml"/>
-        			</i:EventTrigger>
-        		</i:Interaction.Triggers>
-        	</Button>
-        	<Button Content="Parking Information" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Width="436" Height="100"/>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="436"/>
+            <Button Content="Contact  Information" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="436" Height="100">
+               
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="Click">
+            			<ec:NavigateToPageAction TargetPage="/ContactInfo.xaml"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
+               
+            </Button>
+            <Button Content="Parking Information" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Width="436" Height="100"/>
 
         </Grid>
     </Grid>
