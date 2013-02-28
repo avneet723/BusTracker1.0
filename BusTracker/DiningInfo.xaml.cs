@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using System.Text.RegularExpressions;
 
 namespace BusTracker
 {
@@ -39,19 +40,43 @@ namespace BusTracker
 
         private void wc_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
         {
+            HtmlAgilityPack.HtmlDocument HD = new HtmlAgilityPack.HtmlDocument();
+            HD.LoadHtml(e.Result);
 
-           try
+
+            try
             {
-                 HtmlAgilityPack.HtmlDocument HD = new HtmlAgilityPack.HtmlDocument();
-                 HD.Load(new StringReader(e.Result));
-                 var bodyNode = HD.DocumentNode.SelectSingleNode("//body");
-                 string body = bodyNode.InnerText.Trim();
-                 MessageBox.Show(body);
+
+                var abp = HD.DocumentNode.SelectSingleNode("//body//li//text()").InnerText.Trim();
+                var time = HD.DocumentNode.SelectSingleNode("//body//li//ul").InnerText.Trim();
+                System.Diagnostics.Debug.WriteLine(abp + " | " + time);
+
             }
             catch (System.Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+
+            try
+            {
+
+                foreach (var node in HD.DocumentNode.SelectNodes("//body//li")) {
+                    // System.Diagnostics.Debug.WriteLine("Example :: {0}", node.InnerText);
+                    string[] lines = Regex.Split(node.InnerText, "\r\n");
+                    System.Diagnostics.Debug.WriteLine(lines[0]);
+                }
+
+   
+
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
+
+        
         }
     }
 }
