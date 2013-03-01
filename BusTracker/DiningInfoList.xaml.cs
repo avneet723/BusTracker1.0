@@ -13,10 +13,14 @@ namespace BusTracker
 {
     public partial class DiningInfoList : PhoneApplicationPage
     {
+
         public DiningInfoList()
         {
             InitializeComponent();
+            this.dateTime = DateTime.Now;
         }
+
+        public DateTime dateTime { get; set; }
 
         public void button1_Click(object sender, RoutedEventArgs e)
         {
@@ -35,12 +39,17 @@ namespace BusTracker
             wc.Headers["Content-Type"] = "application/x-www-form-urlencoded";
             wc.Headers["Content-Length"] = data.Length.ToString();
             wc.UploadStringAsync(uri, "POST", data);
+
+            this.dateTime = DateTime.Now;
+            MessageBox.Show(dateTime.ToString());
         }
 
         private void wc_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
         {
             HtmlAgilityPack.HtmlDocument HD = new HtmlAgilityPack.HtmlDocument();
             HD.LoadHtml(e.Result);
+
+            
 
 
             try
