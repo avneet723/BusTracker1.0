@@ -20,7 +20,7 @@ namespace BusTracker
 
         public void TurnerPlace_Click(object sender, RoutedEventArgs e)
         {     
-            NavigationService.Navigate(new Uri("/DiningInfo.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/DiningInfoList.xaml", UriKind.Relative));
         }
 
         public void WestEnd_Click(object sender, RoutedEventArgs e)
@@ -30,7 +30,7 @@ namespace BusTracker
 
         public void HokieGrill_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/DiningInfo.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/DiningInfoList.xaml", UriKind.Relative));
         }
 
         public void Dietrick_Click(object sender, RoutedEventArgs e)
@@ -42,6 +42,26 @@ namespace BusTracker
         {
             DateTime now = DateTime.Now;
             System.Diagnostics.Debug.WriteLine("Hour: " + now.Hour + " Minutes: " + now.Minute + " Seconds: " + now.Second);
+        }
+
+        private void Owens_Click_1(object sender, System.Windows.RoutedEventArgs e)
+        {
+        	NavigationService.Navigate(new Uri("/DiningInfo.xaml", UriKind.Relative));
+        }
+
+        private void DietrickExpress_Click_1(object sender, System.Windows.RoutedEventArgs e)
+        {
+        	NavigationService.Navigate(new Uri("/DiningInfo.xaml", UriKind.Relative));
+        }
+
+        private void Squires_Click_1(object sender, System.Windows.RoutedEventArgs e)
+        {
+        	NavigationService.Navigate(new Uri("/DiningInfoList.xaml", UriKind.Relative));
+        }
+
+        private void Deets_Click_1(object sender, System.Windows.RoutedEventArgs e)
+        {
+        	NavigationService.Navigate(new Uri("/DiningInfo.xaml", UriKind.Relative));
         }
     }
 }
