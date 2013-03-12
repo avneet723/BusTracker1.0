@@ -18,7 +18,7 @@
 
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot">
-        <phone:Panorama x:Name="diningTitle" Title="Stuff" Height="768">
+        <phone:Panorama x:Name="diningTitle" Title="Stuff">
 
             <!--Panorama item one-->
             <phone:PanoramaItem x:Name="DiningHours1" Header="Dining Hours" Height="575" Width="432">
