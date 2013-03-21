@@ -34,11 +34,6 @@ namespace BusTracker
 
         public DateTime dateTime { get; set; }
 
-        public void button1_Click(object sender, RoutedEventArgs e)
-        {
-            download(); // When the submit button is clicked, start downloading the times
-        }
-
         private void download()
         {
 
@@ -161,6 +156,11 @@ namespace BusTracker
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private void date_change(object sender, Microsoft.Phone.Controls.DateTimeValueChangedEventArgs e)
+        {
+        	download();
         }
     }
 }
