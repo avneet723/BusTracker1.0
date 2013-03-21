@@ -35,7 +35,7 @@
                     	</Button.Background>
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
-                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfoList.xaml"/>
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
                     </Button>
@@ -139,7 +139,7 @@
                     <Button x:Name="Squires" Content="Squires" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,342,0,0" Width="195" Height="185" Foreground="#FFFF6600" Click="Squires_Click">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
-                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfoList.xaml"/>
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
                         <Button.Background>
