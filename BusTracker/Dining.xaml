@@ -11,8 +11,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="False">
+    SupportedOrientations="Portrait"  Orientation="Portrait" shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot">
@@ -25,10 +24,12 @@
             <phone:PanoramaItem VerticalAlignment="Bottom" Height="597">
             	<Grid Margin="0,0,0,34" VerticalAlignment="Bottom">
             		<Grid.ColumnDefinitions>
-            			<ColumnDefinition Width="69*"/>
-            			<ColumnDefinition Width="71*"/>
+            			<ColumnDefinition Width="31*"/>
+            			<ColumnDefinition Width="27*"/>
+            			<ColumnDefinition Width="46*"/>
+            			<ColumnDefinition Width="212"/>
             		</Grid.ColumnDefinitions>
-                    <Button x:Name="TurnerPlace" Click="TurnerPlace_Click" Content="Turner Place" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="195" Height="185">
+                    <Button x:Name="TurnerPlace" Click="TurnerPlace_Click" Content="Turner Place" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,98,0,0" Width="195" Height="185" Grid.ColumnSpan="3" Foreground="#FFFF6600">
                     	<Button.Background>
                     		<ImageBrush ImageSource="./Resources/turner_place.jpg"/>
                     	</Button.Background>
@@ -38,7 +39,7 @@
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
                     </Button>
-                    <Button x:Name="WestEnd" Click="WestEnd_Click" Content="West End" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7.966,10,0,0" Width="195" Height="185" Grid.Column="1">
+                    <Button x:Name="WestEnd" Click="WestEnd_Click" Content="West End" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,98,0,0" Width="195" Height="185" Grid.Column="3" Foreground="#FFFF6600">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
                     			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
@@ -48,7 +49,7 @@
             				<ImageBrush ImageSource="./Resources/west_end.jpg"/>
             			</Button.Background>
 					</Button>
-                    <Button x:Name="HokieGrill" Click="HokieGrill_Click" Content="Hokie Grill" VerticalContentAlignment="Top" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,255,0,0" Width="195" Height="185">
+                    <Button x:Name="HokieGrill" Click="HokieGrill_Click" Content="Hokie Grill" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,343,0,-1" Width="195" Height="185" Grid.ColumnSpan="3" Foreground="#FFFF6600">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
                     			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
@@ -58,7 +59,7 @@
             				<ImageBrush ImageSource="./Resources/hokie_grill.jpg"/>
             			</Button.Background>
 					</Button>
-                    <Button x:Name="Dietrick" Click="Dietrick_Click" Content="D2" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7.966,255,0,0" Width="195" Height="185" Grid.Column="1">
+                    <Button x:Name="Dietrick" Click="Dietrick_Click" Content="D2" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,343,0,-1" Width="195" Height="185" Grid.Column="3" Foreground="#FFFF6600">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
                     			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
@@ -68,14 +69,54 @@
             				<ImageBrush ImageSource="./Resources/d2.jpg"/>
             			</Button.Background>
 					</Button>
-                    <TextBlock Height="91" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,-127,0,0" Text="Locations" FontSize="64" HorizontalAlignment="Left" Width="279" RenderTransformOrigin="0.502,0.473" Grid.ColumnSpan="2"/>
-				</Grid>
+                    <TextBlock Name="Locations_Text" Height="91" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,-39,0,0" Text="Locations" FontSize="64" HorizontalAlignment="Left" Width="279" RenderTransformOrigin="0.502,0.473" Grid.ColumnSpan="4"/>
+                    <Image Margin="2,365,3,131" Source="/Resources/ribbon_start.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8" Grid.Column="2">
+                    	<Image.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</Image.RenderTransform>
+                    </Image>
+                    <TextBlock x:Name="HokieGrill_Text" HorizontalAlignment="Left" Margin="23,364,0,0" TextWrapping="Wrap" Text="Open" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8" Grid.Column="2">
+                    	<TextBlock.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</TextBlock.RenderTransform>
+                    </TextBlock>
+                    <Image Margin="117,365,8,131" Source="/Resources/ribbon_start.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8" Grid.Column="3">
+                    	<Image.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</Image.RenderTransform>
+                    </Image>
+                    <TextBlock x:Name="D2_Text" HorizontalAlignment="Left" Margin="138,364,0,0" TextWrapping="Wrap" Text="Open" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8" Grid.Column="3">
+                    	<TextBlock.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</TextBlock.RenderTransform>
+                    </TextBlock>
+                    <Image Margin="2,122,3,374" Source="/Resources/ribbon_start.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8" Grid.Column="2">
+                    	<Image.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</Image.RenderTransform>
+                    </Image>
+                    <TextBlock x:Name="Turner_Text" HorizontalAlignment="Left" Margin="23,121,0,0" TextWrapping="Wrap" Text="Open" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8" Grid.Column="2">
+                    	<TextBlock.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</TextBlock.RenderTransform>
+                    </TextBlock>
+                    <Image Margin="117,122,8,374" Source="/Resources/ribbon_start.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8" Grid.Column="3">
+                    	<Image.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</Image.RenderTransform>
+                    </Image>
+                    <TextBlock x:Name="WestEnd_Text" HorizontalAlignment="Left" Margin="138,121,0,0" TextWrapping="Wrap" Text="Open" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8" Grid.Column="3">
+                    	<TextBlock.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</TextBlock.RenderTransform>
+                    </TextBlock>
+                </Grid>
             </phone:PanoramaItem>
 
             <!--Panorama item two-->
             <phone:PanoramaItem VerticalAlignment="Bottom" Height="597">
                 <Grid Margin="0,0,0,34" VerticalAlignment="Bottom">
-                    <Button x:Name="Owens" Content="Owens" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="195" Height="185">
+                    <Button x:Name="Owens" Content="Owens" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,97,0,0" Width="195" Height="185" Foreground="#FFFF6600" Click="Owens_Click">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
                     			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
@@ -85,7 +126,7 @@
                             <ImageBrush ImageSource="./Resources/owens_hall.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="DietrickExpress" Content="DX" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,10,0,0" Height="185" Width="195">
+                    <Button x:Name="DietrickExpress" Content="DX" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,97,0,0" Height="185" Width="195" Foreground="#FFFF6600" Click="DietrickExpress_Click">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
                     			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
@@ -95,7 +136,7 @@
                             <ImageBrush ImageSource="./Resources/d2.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="Squires" Content="Squires" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,255,0,0" Width="195" Height="185">
+                    <Button x:Name="Squires" Content="Squires" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,342,0,0" Width="195" Height="185" Foreground="#FFFF6600" Click="Squires_Click">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
                     			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
@@ -105,7 +146,7 @@
                             <ImageBrush ImageSource="./Resources/squires_student_center.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="Deets" Content="Deets" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,255,0,0" Width="195" Height="185">
+                    <Button x:Name="Deets" Content="Deets" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,342,0,0" Width="195" Height="185" Foreground="#FFFF6600" Click="Deets_Click">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
                     			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
@@ -115,6 +156,46 @@
                             <ImageBrush ImageSource="./Resources/d2.jpg"/>
                         </Button.Background>
                     </Button>
+                    <Image Margin="115,116,218,380" Source="/Resources/ribbon_start.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8">
+                    	<Image.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</Image.RenderTransform>
+                    </Image>
+                    <TextBlock x:Name="Owens_Text" HorizontalAlignment="Left" Margin="136,115,0,0" TextWrapping="Wrap" Text="Open" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8">
+                    	<TextBlock.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</TextBlock.RenderTransform>
+                    </TextBlock>
+                    <Image Margin="115,362,218,134" Source="/Resources/ribbon_start.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8">
+                    	<Image.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</Image.RenderTransform>
+                    </Image>
+                    <TextBlock x:Name="Squires_Text" HorizontalAlignment="Left" Margin="136,361,0,0" TextWrapping="Wrap" Text="Open" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8">
+                    	<TextBlock.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</TextBlock.RenderTransform>
+                    </TextBlock>
+                    <Image Margin="322,116,11,380" Source="/Resources/ribbon_start.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8">
+                    	<Image.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</Image.RenderTransform>
+                    </Image>
+                    <TextBlock x:Name="DX_Text" HorizontalAlignment="Left" Margin="343,115,0,0" TextWrapping="Wrap" Text="Open" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8">
+                    	<TextBlock.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</TextBlock.RenderTransform>
+                    </TextBlock>
+                    <Image Margin="322,362,11,134" Source="/Resources/ribbon_start.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8">
+                    	<Image.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</Image.RenderTransform>
+                    </Image>
+                    <TextBlock x:Name="Deets_Text" HorizontalAlignment="Left" Margin="343,361,0,0" TextWrapping="Wrap" Text="Close" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8">
+                    	<TextBlock.RenderTransform>
+                    		<CompositeTransform Rotation="44"/>
+                    	</TextBlock.RenderTransform>
+                    </TextBlock>
                 </Grid>
             </phone:PanoramaItem>
         </phone:Panorama>
