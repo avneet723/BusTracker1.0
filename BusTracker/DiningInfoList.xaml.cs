@@ -15,6 +15,9 @@ namespace BusTracker
     {
 
         String location;
+        String[] turnerLocations = { "1872 Fire Grill", "Atomic Pizzeria", "Bruegger's Bagels", "Dolci e Caffe", "Jamba Juice", 
+                                       "Origami Grill", "Origami Sushi", "Qdoba Mexican Grill", "Soup Garden" };
+        String[] squiresLocations = { "Sbarro", "Au Bon Pain Cafe", "Au Bon Pain Kiosk" };
 
         public DiningInfoList()
         {
@@ -27,13 +30,16 @@ namespace BusTracker
             diningTitle.Title = diningHall; // Set the Title to the Dining Hall
             var splitstr = diningHall.Split();
             location = splitstr[0]; // Searching for "Turner" is easier than searching for "Turner Place"
-
+            //location = diningHall;
             download(); // When the user navigates to this page, start downloading the times
 
         }
 
         public DateTime dateTime { get; set; }
 
+        /**
+         * Handles the HTTP Post request and obtains the information from the secure.hosting.dining url 
+         */
         private void download()
         {
 
@@ -55,7 +61,9 @@ namespace BusTracker
         }
 
 
-
+        /**
+         * Performs the parsing of the dining hours information.
+         */
         private void wc_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
         {
 
@@ -73,74 +81,48 @@ namespace BusTracker
 
                     var hours = "";
 
-                    if (node.InnerText.Contains(location)) // ... for the dining hall we want
+                    if (node.InnerText.Contains(location) && location.Equals("Turner")) // ... for the dining hall we want
                     {
+                        placepicker.ItemsSource = turnerLocations;
                         hours = array[2]; // Hours are in the Second Index
                         Regex r = new Regex(@"[\s]{2,}"); // Breakfast 7am-2pm              Lunch 2pm-5pm       Dinner 6pm-7pm    (There is a lot of Whitespace between each word)
                         string[] timesSplit = r.Split(hours); // [Breakfast 7am-2pm] [Lunch 2pm-5pm] [Dinner 6pm-7pm] (We have created a string array and the Whitespace has been removed)
 
-                        if (!diningHallFound && node.InnerText.Contains("Brunch")) // Owens on Saturday or D2, Owens, and West End on Sunday
-                        {
-
-                            hour1.Text = "Brunch Hours"; block1.Text = timesSplit[1]; // Brunch Hours
-                            hour2.Text = "Regular Hours"; block2.Text = timesSplit[2]; // Regular Hours
-                            diningHallFound = true;
-
-                        }
-
-                        else if (!diningHallFound && node.InnerText.Contains("Lunch/Dinner")) // Fire Grill at Turner Place During Weekday
+                        if (!diningHallFound && node.InnerText.Contains("Breakfast") && node.InnerText.Contains("Lunch/Dinner") && node.InnerText.Contains(placepicker.SelectedItem.ToString()))
                         {
 
                             hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1]; // Breakfast Hours
                             hour2.Text = "Lunch/Dinner Hours"; block2.Text = timesSplit[2]; // Lunch/Dinner Hours
+                            hour3.Text = ""; block3.Text = ""; // Empty String
                             diningHallFound = true;
-
                         }
 
-                        else if (!diningHallFound && node.InnerText.Contains("Breakfast") && node.InnerText.Contains("Dinner")) // D2 During Weekday
-                        {
-
-                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1]; // Breakfast Hours
-                            hour2.Text = "Lunch Hours"; block2.Text = timesSplit[2]; // Lunch Hours
-                            hour3.Text = "Dinner Hours"; block3.Text = timesSplit[3]; // Dinner Hours
-                            diningHallFound = true;
-
-                        }
-
-                        else if (!diningHallFound && node.InnerText.Contains("Breakfast") && node.InnerText.Contains("Lunch")) // Vet Med Cafe During Weekday and Break
-                        {
-
-                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1]; // Breakfast Hours
-                            hour2.Text = "Lunch Hours"; block2.Text = timesSplit[2]; // Lunch Hours
-                            diningHallFound = true;
-
-                        }
-
-                        else if (!diningHallFound && node.InnerText.Contains("Reservation")) // Origami Grill at Turner Place During Weekday
-                        {
-
-                            hour1.Text = "Lunch Hours"; block1.Text = timesSplit[1]; // Lunch Hours
-                            hour2.Text = "Dinner Hours (Reservation Required)"; block2.Text = timesSplit[2]; // Dinner Hours
-                            diningHallFound = true;
-
-                        }
-
-                        else if (!diningHallFound && node.InnerText.Contains("Special")) // ABP During Break
-                        {
-
-                            hour1.Text = "Special Hours"; block1.Text = timesSplit[1]; // Special Hours
-                            diningHallFound = true;
-
-                        }
-
-                        else if (!diningHallFound && node.InnerText.Contains("Regular")) // Any Other Time
+                        else if (!diningHallFound && node.InnerText.Contains("Regular Hours") && node.InnerText.Contains(placepicker.SelectedItem.ToString()))
                         {
 
                             hour1.Text = "Regular Hours"; block1.Text = timesSplit[1]; // Regular Hours
+                            hour2.Text = ""; block2.Text = ""; // Empty String
+                            hour3.Text = ""; block3.Text = ""; // Empty String
+                            diningHallFound = true;
+                        }
+
+                        else if (!diningHallFound && node.InnerText.Contains("Lunch") && node.InnerText.Contains("Dinner") && node.InnerText.Contains(placepicker.SelectedItem.ToString()))
+                        {
+
+                            hour1.Text = "Lunch"; block1.Text = timesSplit[1]; // Lunch
+                            hour2.Text = "Dinner"; block2.Text = timesSplit[2]; // Dinner
+                            hour3.Text = ""; block3.Text = ""; // Empty String
+                            diningHallFound = true;
+                        }
+
+                        else if (!diningHallFound && node.InnerText.Contains("Breakfast") && !diningHallFound && node.InnerText.Contains("Lunch") && node.InnerText.Contains(placepicker.SelectedItem.ToString()))
+                        {
+                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1]; // Breakfast Hours
+                            hour2.Text = ""; block2.Text = ""; // Empty String
+                            hour3.Text = ""; block3.Text = ""; // Empty String
                             diningHallFound = true;
 
                         }
-
                     }
 
                 }
@@ -160,12 +142,12 @@ namespace BusTracker
 
         private void date_change(object sender, Microsoft.Phone.Controls.DateTimeValueChangedEventArgs e)
         {
-        	download();
+            download();
         }
 
         private void hall_change(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
+            download();
         }
     }
 }
