@@ -29,7 +29,7 @@
                     <TextBlock x:Name="hour3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hours 3" VerticalAlignment="Top" Margin="11,351,0,0" Width="149" Height="37"/>
                     <TextBlock x:Name="block3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="210,351,0,-24" Width="222" Height="86"/>
                     <toolkit:DatePicker x:Name="datepicker" Value="{Binding dateTime, ElementName=diningHoursInfo, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="82" Width="460" Margin="-12,65,-16,0" ValueChanged="date_change"/>
-                    <toolkit:ListPicker x:Name="listpicker" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="432" SelectionChanged="dining_hall_change"/>
+                    <toolkit:ListPicker x:Name="listpicker" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="432" SelectionChanged="hall_change"/>
                 </Grid>
 
             </phone:PanoramaItem>

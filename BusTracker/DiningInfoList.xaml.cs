@@ -162,5 +162,10 @@ namespace BusTracker
         {
         	download();
         }
+
+        private void hall_change(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
+        }
     }
 }
