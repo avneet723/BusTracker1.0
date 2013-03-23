@@ -26,11 +26,21 @@ namespace BusTracker
             this.dateTime = DateTime.Now;
 
             String diningHall = PhoneApplicationService.Current.State["hall"].ToString(); // Load the Dining Hall that was saved into Current.State from Dining.xaml.cs
-
+            
             diningTitle.Title = diningHall; // Set the Title to the Dining Hall
             var splitstr = diningHall.Split();
             location = splitstr[0]; // Searching for "Turner" is easier than searching for "Turner Place"
-            //location = diningHall;
+
+            System.Diagnostics.Debug.WriteLine("\nDining Hall: " + diningHall);
+            if (location.Equals("Turner"))
+            {
+                placepicker.ItemsSource = turnerLocations;
+            }
+            else if (location.Equals("Squires"))
+            {
+                placepicker.ItemsSource = squiresLocations;
+            }
+
             download(); // When the user navigates to this page, start downloading the times
 
         }
@@ -83,7 +93,6 @@ namespace BusTracker
 
                     if (node.InnerText.Contains(location) && location.Equals("Turner")) // ... for the dining hall we want
                     {
-                        placepicker.ItemsSource = turnerLocations;
                         hours = array[2]; // Hours are in the Second Index
                         Regex r = new Regex(@"[\s]{2,}"); // Breakfast 7am-2pm              Lunch 2pm-5pm       Dinner 6pm-7pm    (There is a lot of Whitespace between each word)
                         string[] timesSplit = r.Split(hours); // [Breakfast 7am-2pm] [Lunch 2pm-5pm] [Dinner 6pm-7pm] (We have created a string array and the Whitespace has been removed)
@@ -91,8 +100,8 @@ namespace BusTracker
                         if (!diningHallFound && node.InnerText.Contains("Breakfast") && node.InnerText.Contains("Lunch/Dinner") && node.InnerText.Contains(placepicker.SelectedItem.ToString()))
                         {
 
-                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1]; // Breakfast Hours
-                            hour2.Text = "Lunch/Dinner Hours"; block2.Text = timesSplit[2]; // Lunch/Dinner Hours
+                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1].Replace("Breakfast", ""); // Breakfast Hours
+                            hour2.Text = "Lunch/Dinner Hours"; block2.Text = timesSplit[2].Replace("Lunch/Dinner", ""); // Lunch/Dinner Hours
                             hour3.Text = ""; block3.Text = ""; // Empty String
                             diningHallFound = true;
                         }
@@ -100,7 +109,7 @@ namespace BusTracker
                         else if (!diningHallFound && node.InnerText.Contains("Regular Hours") && node.InnerText.Contains(placepicker.SelectedItem.ToString()))
                         {
 
-                            hour1.Text = "Regular Hours"; block1.Text = timesSplit[1]; // Regular Hours
+                            hour1.Text = "Regular Hours"; block1.Text = timesSplit[1].Replace("Regular Hours", ""); // Regular Hours
                             hour2.Text = ""; block2.Text = ""; // Empty String
                             hour3.Text = ""; block3.Text = ""; // Empty String
                             diningHallFound = true;
@@ -109,16 +118,16 @@ namespace BusTracker
                         else if (!diningHallFound && node.InnerText.Contains("Lunch") && node.InnerText.Contains("Dinner") && node.InnerText.Contains(placepicker.SelectedItem.ToString()))
                         {
 
-                            hour1.Text = "Lunch"; block1.Text = timesSplit[1]; // Lunch
-                            hour2.Text = "Dinner"; block2.Text = timesSplit[2]; // Dinner
+                            hour1.Text = "Lunch"; block1.Text = timesSplit[1].Replace("Lunch", ""); ; // Lunch
+                            hour2.Text = "Dinner"; block2.Text = timesSplit[2].Replace("Dinner", ""); // Dinner
                             hour3.Text = ""; block3.Text = ""; // Empty String
                             diningHallFound = true;
                         }
 
-                        else if (!diningHallFound && node.InnerText.Contains("Breakfast") && !diningHallFound && node.InnerText.Contains("Lunch") && node.InnerText.Contains(placepicker.SelectedItem.ToString()))
+                        else if (!diningHallFound && node.InnerText.Contains("Breakfast") && node.InnerText.Contains("Lunch") && node.InnerText.Contains(placepicker.SelectedItem.ToString()))
                         {
-                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1]; // Breakfast Hours
-                            hour2.Text = ""; block2.Text = ""; // Empty String
+                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1].Replace("Breakfast", ""); // Breakfast Hours
+                            hour2.Text = "Lunch"; block2.Text = timesSplit[2].Replace("Lunch", ""); ; // Lunch
                             hour3.Text = ""; block3.Text = ""; // Empty String
                             diningHallFound = true;
 
