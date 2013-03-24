@@ -15,6 +15,7 @@ namespace BusTracker
     public partial class DiningInfo : PhoneApplicationPage
     {
         String location;
+        HtmlAgilityPack.HtmlDocument HD;
 
         public DiningInfo()
         {
@@ -27,44 +28,19 @@ namespace BusTracker
             diningTitle.Title = diningHall; // Set the Title to the Dining Hall
             var splitstr = diningHall.Split();
             location = splitstr[0]; // Searching for "Turner" is easier than searching for "Turner Place"
-
-            download(); // When the user navigates to this page, start downloading the times
-
+            
+            this.HD = ((App)Application.Current).HD;
+            parseInfo(HD);
         }
 
         public DateTime dateTime { get; set; }
 
-        private void download()
-        {
-
-            // The URL for the Dining Hours Website
-            string url = "https://secure.hosting.vt.edu/www.dining.vt.edu/hours/index.php?d=t";
-            var uri = new Uri(url, UriKind.Absolute);
-
-            // Pick the Month, Day, and Year from the datepicker
-            string data = "d_month=" + dateTime.Month + "&d_day=" + dateTime.Day + "&d_year=" + dateTime.Year + "&view=View+Date";
-
-            var wc = new WebClient();
-
-            wc.UploadStringCompleted += new UploadStringCompletedEventHandler(wc_UploadStringCompleted); // When our HTTP Post is Finished, Go to the wc_UploadStringCompleted Event Handler
-
-            wc.Headers["Content-Type"] = "application/x-www-form-urlencoded"; // Specify the Content-Type ...
-            wc.Headers["Content-Length"] = data.Length.ToString(); // ... and the Content-Length
-            wc.UploadStringAsync(uri, "POST", data); // Begin the HTTP Post
-
-        }
-
-
-
-        private void wc_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
+        private void parseInfo(HtmlAgilityPack.HtmlDocument HD)
         {
 
             try // In case there is no available internet connection
             {
                 bool diningHallFound = false;
-
-                HtmlAgilityPack.HtmlDocument HD = new HtmlAgilityPack.HtmlDocument();
-                HD.LoadHtml(e.Result); // Load the HTML from e.Result which is currently a String
 
                 foreach (var node in HD.DocumentNode.SelectNodes("//body//li")) // Examine each node ...
                 {
@@ -82,8 +58,9 @@ namespace BusTracker
                         if (!diningHallFound && node.InnerText.Contains("Brunch")) // Owens on Saturday or D2, Owens, and West End on Sunday
                         {
 
-                            hour1.Text = "Brunch Hours"; block1.Text = timesSplit[1]; // Brunch Hours
-                            hour2.Text = "Regular Hours"; block2.Text = timesSplit[2]; // Regular Hours
+                            hour1.Text = "Brunch Hours"; block1.Text = timesSplit[1].Replace("Brunch", ""); // Brunch Hours
+                            hour2.Text = "Regular Hours"; block2.Text = timesSplit[2].Replace("Regular Hours", ""); // Regular Hours
+                            hour3.Text = ""; block3.Text = "";
                             diningHallFound = true;
 
                         }
@@ -91,8 +68,9 @@ namespace BusTracker
                         else if (!diningHallFound && node.InnerText.Contains("Lunch/Dinner")) // Fire Grill at Turner Place During Weekday
                         {
 
-                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1]; // Breakfast Hours
-                            hour2.Text = "Lunch/Dinner Hours"; block2.Text = timesSplit[2]; // Lunch/Dinner Hours
+                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1].Replace("Breakfast", ""); // Breakfast Hours
+                            hour2.Text = "Lunch/Dinner Hours"; block2.Text = timesSplit[2].Replace("Lunch/Dinner", ""); // Lunch/Dinner Hours
+                            hour3.Text = ""; block3.Text = "";
                             diningHallFound = true;
 
                         }
@@ -100,9 +78,9 @@ namespace BusTracker
                         else if (!diningHallFound && node.InnerText.Contains("Breakfast") && node.InnerText.Contains("Dinner")) // D2 During Weekday
                         {
 
-                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1]; // Breakfast Hours
-                            hour2.Text = "Lunch Hours"; block2.Text = timesSplit[2]; // Lunch Hours
-                            hour3.Text = "Dinner Hours"; block3.Text = timesSplit[3]; // Dinner Hours
+                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1].Replace("Breakfast", ""); // Breakfast Hours
+                            hour2.Text = "Lunch Hours"; block2.Text = timesSplit[2].Replace("Lunch", ""); // Lunch Hours
+                            hour3.Text = "Dinner Hours"; block3.Text = timesSplit[3].Replace("Dinner", ""); // Dinner Hours
                             diningHallFound = true;
 
                         }
@@ -110,8 +88,9 @@ namespace BusTracker
                         else if (!diningHallFound && node.InnerText.Contains("Breakfast") && node.InnerText.Contains("Lunch")) // Vet Med Cafe During Weekday and Break
                         {
 
-                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1]; // Breakfast Hours
-                            hour2.Text = "Lunch Hours"; block2.Text = timesSplit[2]; // Lunch Hours
+                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1].Replace("Breakfast", ""); // Breakfast Hours
+                            hour2.Text = "Lunch Hours"; block2.Text = timesSplit[2].Replace("Lunch", ""); // Lunch Hours
+                            hour3.Text = ""; block3.Text = "";
                             diningHallFound = true;
 
                         }
@@ -119,8 +98,9 @@ namespace BusTracker
                         else if (!diningHallFound && node.InnerText.Contains("Reservation")) // Origami Grill at Turner Place During Weekday
                         {
 
-                            hour1.Text = "Lunch Hours"; block1.Text = timesSplit[1]; // Lunch Hours
-                            hour2.Text = "Dinner Hours (Reservation Required)"; block2.Text = timesSplit[2]; // Dinner Hours
+                            hour1.Text = "Lunch Hours"; block1.Text = timesSplit[1].Replace("Lunch", ""); // Lunch Hours
+                            hour2.Text = "Dinner Hours (Reservation Required)"; block2.Text = timesSplit[2].Replace("Dinner", ""); // Dinner Hours
+                            hour3.Text = ""; block3.Text = "";
                             diningHallFound = true;
 
                         }
@@ -128,7 +108,9 @@ namespace BusTracker
                         else if (!diningHallFound && node.InnerText.Contains("Special")) // ABP During Break
                         {
 
-                            hour1.Text = "Special Hours"; block1.Text = timesSplit[1]; // Special Hours
+                            hour1.Text = "Special Hours"; block1.Text = timesSplit[1].Replace("Special", ""); // Special Hours
+                            hour2.Text = ""; block2.Text = "";
+                            hour3.Text = ""; block3.Text = "";
                             diningHallFound = true;
 
                         }
@@ -136,7 +118,9 @@ namespace BusTracker
                         else if (!diningHallFound && node.InnerText.Contains("Regular")) // Any Other Time
                         {
 
-                            hour1.Text = "Regular Hours"; block1.Text = timesSplit[1]; // Regular Hours
+                            hour1.Text = "Regular Hours"; block1.Text = timesSplit[1].Replace("Regular Hours", ""); // Regular Hours
+                            hour2.Text = ""; block2.Text = "";
+                            hour3.Text = ""; block3.Text = "";
                             diningHallFound = true;
 
                         }
@@ -147,11 +131,9 @@ namespace BusTracker
 
                 if (!diningHallFound)
                 {
-                    hour1.Text = "Closed"; block1.Text = "Closed"; // No Dining Halls are Open
+                    hour1.Text = "Closed!"; block1.Text = ""; // No Dining Halls are Open
                 }
-
             }
-
             catch (System.Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -160,7 +142,11 @@ namespace BusTracker
 
         private void date_change(object sender, Microsoft.Phone.Controls.DateTimeValueChangedEventArgs e)
         {
-        	download();
+            //Update HTML and reparse
+            ((App)Application.Current).download(dateTime);
+            System.Diagnostics.Debug.WriteLine(dateTime);
+            this.HD = ((App)Application.Current).HD;
+            parseInfo(HD);
         }
     }
 }
