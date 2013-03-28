@@ -26,6 +26,7 @@
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
     <ExpressionBlendVersion>5.0.31017.0</ExpressionBlendVersion>
+    <ExpressionBlendVersion>5.0.30924.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -102,6 +103,14 @@
     </Compile>
     <Compile Include="DiningInfoList.xaml.cs">
       <DependentUpon>DiningInfoList.xaml</DependentUpon>
+    <Compile Include="ComputerConsult.xaml.cs">
+      <DependentUpon>ComputerConsult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContactInfo.xaml.cs">
+      <DependentUpon>ContactInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InfoPageMain.xaml.cs">
+      <DependentUpon>InfoPageMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -135,6 +144,14 @@
     </Page>
     <Page Include="DiningInfoList.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
+    <Page Include="ComputerConsult.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ContactInfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InfoPageMain.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MainPage.xaml">

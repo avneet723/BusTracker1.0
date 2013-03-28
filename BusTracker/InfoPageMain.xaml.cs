@@ -10,13 +10,11 @@ using Microsoft.Phone.Shell;
 
 namespace BusTracker
 {
-    public partial class PanoramaPage1 : PhoneApplicationPage
+    public partial class InfoPageMain : PhoneApplicationPage
     {
-        public PanoramaPage1()
+        public InfoPageMain()
         {
             InitializeComponent();
         }
-
-
     }
 }
