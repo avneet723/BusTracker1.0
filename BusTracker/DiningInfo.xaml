@@ -18,20 +18,18 @@
 
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot">
-        <phone:Panorama x:Name="diningTitle" Title="Stuff">
+        <phone:Panorama x:Name="diningTitle" Title="">
 
             <!--Panorama item one-->
             <phone:PanoramaItem x:Name="DiningHours1" Header="Dining Hours" Height="575" Width="432">
                 <Grid Margin="0,0,0,70">
-                    <Button x:Name="button1" Click="button1_Click" Content="Get Hours" VerticalAlignment="Top" Margin="240,10,0,0" Height="73" HorizontalAlignment="Left" Width="161"/>
-                    <toolkit:DatePicker x:Name="datepicker" Value="{Binding dateTime, ElementName=diningHoursInfo, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="73" Width="162" Margin="56,10,0,0"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Date:" VerticalAlignment="Top" Margin="10,34,0,0"/>
-                    <TextBlock x:Name="hour1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hours 1" VerticalAlignment="Top" Margin="24,165,0,0" Width="133"/>
-                    <TextBlock x:Name="block1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="202,165,0,0" Width="199" Height="60"/>
-                    <TextBlock x:Name="hour2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hours 2" VerticalAlignment="Top" Margin="24,245,0,0" Width="133"/>
-                    <TextBlock x:Name="block2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="202,245,0,0" Width="199" Height="58"/>
-                    <TextBlock x:Name="hour3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hours 3" VerticalAlignment="Top" Margin="24,308,0,0" Width="133"/>
-                    <TextBlock x:Name="block3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="202,308,0,0" Width="199" Height="63"/>
+                    <toolkit:DatePicker x:Name="datepicker" Value="{Binding dateTime, ElementName=diningHoursInfo, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="73" Width="420" Margin="0,10,0,0" ValueChanged="date_change"/>
+                    <TextBlock x:Name="hour1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="24,165,0,0" Width="133"/>
+                    <TextBlock x:Name="block1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="202,165,0,0" Width="199" Height="60"/>
+                    <TextBlock x:Name="hour2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="24,245,0,0" Width="133"/>
+                    <TextBlock x:Name="block2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="202,245,0,0" Width="199" Height="58"/>
+                    <TextBlock x:Name="hour3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="24,308,0,0" Width="133"/>
+                    <TextBlock x:Name="block3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="202,308,0,0" Width="199" Height="63"/>
                 </Grid>
             </phone:PanoramaItem>
 

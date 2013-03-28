@@ -22,7 +22,7 @@ namespace BusTracker
         public void TurnerPlace_Click(object sender, RoutedEventArgs e)
         {
             PhoneApplicationService.Current.State["hall"] = "Turner Place"; // Save "Turner Place" into Current.State
-            NavigationService.Navigate(new Uri("/DiningInfo.xaml", UriKind.Relative)); // Navigate to the DiningInfo Page
+            NavigationService.Navigate(new Uri("/DiningInfoList.xaml", UriKind.Relative)); // Navigate to the DiningInfo Page
         }
 
         public void WestEnd_Click(object sender, RoutedEventArgs e)
@@ -58,7 +58,7 @@ namespace BusTracker
         private void Squires_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             PhoneApplicationService.Current.State["hall"] = "Squires";
-            NavigationService.Navigate(new Uri("/DiningInfo.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/DiningInfoList.xaml", UriKind.Relative));
         }
 
         private void Deets_Click(object sender, System.Windows.RoutedEventArgs e)
