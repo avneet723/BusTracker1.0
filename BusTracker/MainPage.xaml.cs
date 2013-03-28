@@ -35,20 +35,29 @@ namespace BusTracker
             else {
                 var twitterCtx = new TwitterContext(auth);
 
-                var queryResults =
-                    from search in twitterCtx.Search
-                    where search.Type == SearchType.Search &&
-                          search.Query == "microsoft"
-                    select search;
+                Console.WriteLine(twitterCtx.User);
 
-                display.Text = queryResults.Count().ToString();
-                int index;
-                for (index = 0; index < queryResults.Count(); index++)
+                var user =
+                (from usr in twitterCtx.Search
+                 where usr.Type == SearchType.Search &&
+                       usr.Query == "Virginia Tech" &&
+                       usr.Count == 7
+                 select usr)
+                 .SingleOrDefault();
+
+                if (user != null)
+                    results.Text = "User Name: " + user.ToString();
+                else
                 {
-                    display.Text = queryResults.ElementAt(index).ToString();
+                    results.Text = "Finding...";
                 }
             }
 
+
+        }
+
+        private void Info_Loaded(object sender, RoutedEventArgs e)
+        {
 
         }
 
