@@ -17,6 +17,9 @@ namespace BusTracker
             InitializeComponent();
         }
 
+        private void Panorama_Loaded_1(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }
