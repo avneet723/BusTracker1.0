@@ -125,9 +125,17 @@ namespace BusTracker
         private void date_change(object sender, Microsoft.Phone.Controls.DateTimeValueChangedEventArgs e)
         {
             //this.dateTime.Year = datepicker.Value.
-            ((App)Application.Current).download(dateTime);
-            this.HD = ((App)Application.Current).HD;
-            parseInfo(HD);
+            //System.Diagnostics.Debug.WriteLine(sender.GetType());
+            //System.Diagnostics.Debug.WriteLine(dateTime);
+            if (datepicker != null)
+            {
+                //datepicker = (DatePicker)sender;
+                dateTime = (DateTime)datepicker.Value;
+                System.Diagnostics.Debug.WriteLine(dateTime);
+                ((App)Application.Current).download(dateTime);
+                this.HD = ((App)Application.Current).HD;
+                parseInfo(HD);
+            }
         }
 
         private void hall_change(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

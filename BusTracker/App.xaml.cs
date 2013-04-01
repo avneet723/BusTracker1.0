@@ -8,6 +8,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using BusTracker.Resources;
 using System.Net;
+using System.Threading;
 
 namespace BusTracker
 {
@@ -244,7 +245,9 @@ namespace BusTracker
 
             wc.Headers["Content-Type"] = "application/x-www-form-urlencoded"; // Specify the Content-Type ...
             wc.Headers["Content-Length"] = data.Length.ToString(); // ... and the Content-Length
+            //ManualResetEvent evt = new ManualResetEvent(false);
             wc.UploadStringAsync(uri, "POST", data); // Begin the HTTP Post
+            //evt.WaitOne();
 
         }
 
@@ -257,6 +260,7 @@ namespace BusTracker
             try // In case there is no available internet connection
             {
                 HD.LoadHtml(e.Result); // Load the HTML from e.Result which is currently a String
+                //((ManualResetEvent)e.UserState).Set();
             }
 
             catch (System.Exception ex)
