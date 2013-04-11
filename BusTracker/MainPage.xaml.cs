@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Xml;
+using System.Net;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -19,11 +21,11 @@ namespace BusTracker
         public MainPage()
         {
             InitializeComponent();
-
+            feedBrowser.Navigate(new Uri("http://www.google.com"));
             // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
-        }
 
+        }
+        /*
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             ITwitterAuthorizer auth = SharedState.Authorizer;
@@ -32,9 +34,10 @@ namespace BusTracker
             {
                 NavigationService.Navigate(new Uri("/OAuth.xaml", UriKind.Relative));
             }
-            else {
-                var twitterCtx = new TwitterContext(auth);
-
+            else
+            {
+                /*var twitterCtx = new TwitterContext(auth);
+                
                 Console.WriteLine(twitterCtx.User);
 
                 var user =
@@ -51,18 +54,17 @@ namespace BusTracker
                 {
                     results.Text = "Finding...";
                 }
+            // /
             }
 
-
-        }
+        }*/
 
         private void Info_Loaded(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
-
-
+        
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{

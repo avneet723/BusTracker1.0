@@ -45,11 +45,8 @@
         </StackPanel>
         <phone:Pivot x:Name="Info" HorizontalAlignment="Left" Height="597" Grid.Row="1" Title="" VerticalAlignment="Top" Width="480" Margin="10,0,-10,0" Loaded="Info_Loaded" >
         	<phone:PivotItem x:Name="Feed" CacheMode="{x:Null}" Header="Feed">
-                <StackPanel>
-                    <Button Name="Button1" Content="click me" Click="Button_Click_1" Width="200" Height="100"/>
-        		    <TextBlock Name="results" HorizontalAlignment="Left" Height="443" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="443"/>
-                </StackPanel>
-        	</phone:PivotItem>
+                <StackPanel/>
+            </phone:PivotItem>
         	<phone:PivotItem x:Name="Mentions" CacheMode="{x:Null}" Header="Mentions">
         		<Grid/>
         	</phone:PivotItem>
@@ -57,6 +54,7 @@
         		<Grid/>
         	</phone:PivotItem>
         </phone:Pivot>
+        <phone:WebBrowser Name="feedBrowser" HorizontalAlignment="Left" Height="469" Margin="12,130,0,0" Grid.Row="1" VerticalAlignment="Top" Width="458"/>
 
         <!--ContentPanel - place additional content here-->
 
