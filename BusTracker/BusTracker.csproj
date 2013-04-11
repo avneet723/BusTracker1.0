@@ -94,6 +94,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ComputerConsult.xaml.cs">
+      <DependentUpon>ComputerConsult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContactInfo.xaml.cs">
+      <DependentUpon>ContactInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CookCenter.xaml.cs">
+      <DependentUpon>CookCenter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeanStudent.xaml.cs">
+      <DependentUpon>DeanStudent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dining.xaml.cs">
       <DependentUpon>Dining.xaml</DependentUpon>
     </Compile>
@@ -102,6 +114,15 @@
     </Compile>
     <Compile Include="DiningInfoList.xaml.cs">
       <DependentUpon>DiningInfoList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Environmental.xaml.cs">
+      <DependentUpon>Environmental.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FacilitiesServices.xaml.cs">
+      <DependentUpon>FacilitiesServices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InfoPageMain.xaml.cs">
+      <DependentUpon>InfoPageMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -113,11 +134,32 @@
     <Compile Include="Nutrition.xaml.cs">
       <DependentUpon>Nutrition.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ParkingServices.xaml.cs">
+      <DependentUpon>ParkingServices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Police.xaml.cs">
+      <DependentUpon>Police.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recreational.xaml.cs">
+      <DependentUpon>Recreational.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistarOffice.xaml.cs">
+      <DependentUpon>RegistarOffice.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SafeRide.xaml.cs">
+      <DependentUpon>SafeRide.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Schiffert.xaml.cs">
+      <DependentUpon>Schiffert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WomensCenter.xaml.cs">
+      <DependentUpon>WomensCenter.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +167,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="ComputerConsult.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ContactInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CookCenter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DeanStudent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Dining.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -137,6 +195,18 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Environmental.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FacilitiesServices.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InfoPageMain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,6 +217,34 @@
     </Page>
     <Page Include="Nutrition.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ParkingServices.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Police.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Recreational.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RegistarOffice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SafeRide.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Schiffert.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WomensCenter.xaml">
+      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
