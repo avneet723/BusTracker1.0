@@ -20,9 +20,6 @@ namespace BusTracker
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
 
-        // HTMLDocument that contains the dining hours
-        public HtmlAgilityPack.HtmlDocument HD = new HtmlAgilityPack.HtmlDocument();
-
 
         /// <summary>
         /// Constructor for the Application object.
@@ -66,7 +63,7 @@ namespace BusTracker
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
-            download(DateTime.Now);
+            
         }
 
         // Code to execute when the application is activated (brought to foreground)
@@ -223,49 +220,6 @@ namespace BusTracker
                 }
 
                 throw;
-            }
-        }
-
-        /**
-         * Handles the HTTP Post request and obtains the information from the secure.hosting.dining url 
-         */
-        public void download(DateTime dateTime)
-        {
-
-            // The URL for the Dining Hours Website
-            string url = "https://secure.hosting.vt.edu/www.dining.vt.edu/hours/index.php?d=t";
-            var uri = new Uri(url, UriKind.Absolute);
-
-            // Pick the Month, Day, and Year from the datepicker
-            string data = "d_month=" + dateTime.Month + "&d_day=" + dateTime.Day + "&d_year=" + dateTime.Year + "&view=View+Date";
-
-            var wc = new WebClient();
-
-            wc.UploadStringCompleted += new UploadStringCompletedEventHandler(wc_UploadStringCompleted); // When our HTTP Post is Finished, Go to the wc_UploadStringCompleted Event Handler
-
-            wc.Headers["Content-Type"] = "application/x-www-form-urlencoded"; // Specify the Content-Type ...
-            wc.Headers["Content-Length"] = data.Length.ToString(); // ... and the Content-Length
-            //ManualResetEvent evt = new ManualResetEvent(false);
-            wc.UploadStringAsync(uri, "POST", data); // Begin the HTTP Post
-            //evt.WaitOne();
-
-        }
-
-        /**
-         * Performs the parsing of the dining hours information.
-         */
-        private void wc_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
-        {
-
-            try // In case there is no available internet connection
-            {
-                HD.LoadHtml(e.Result); // Load the HTML from e.Result which is currently a String
-                //((ManualResetEvent)e.UserState).Set();
-            }
-
-            catch (System.Exception ex)
-            {
-                Console.WriteLine(ex.Message);
             }
         }
     }

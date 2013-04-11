@@ -42,7 +42,7 @@
                     <Button x:Name="WestEnd" Click="WestEnd_Click" Content="West End" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,98,0,0" Width="195" Height="185" Grid.Column="3" Foreground="#FFFF6600">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
-                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfoList.xaml"/>
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
 						<Button.Background>
@@ -52,17 +52,17 @@
                     <Button x:Name="HokieGrill" Click="HokieGrill_Click" Content="Hokie Grill" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,343,0,-1" Width="195" Height="185" Grid.ColumnSpan="3" Foreground="#FFFF6600">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
-                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfoList.xaml"/>
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
 						<Button.Background>
             				<ImageBrush ImageSource="./Resources/hokie_grill.jpg"/>
             			</Button.Background>
 					</Button>
-                    <Button x:Name="Dietrick" Click="Dietrick_Click" Content="D2" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,343,0,-1" Width="195" Height="185" Grid.Column="3" Foreground="#FFFF6600">
+                    <Button x:Name="Dietrick" Click="Dietrick_Click" Content="Dietrick" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,343,0,-1" Width="195" Height="185" Grid.Column="3" Foreground="#FFFF6600">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
-                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfoList.xaml"/>
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
 						<Button.Background>
@@ -119,41 +119,41 @@
                     <Button x:Name="Owens" Content="Owens" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,97,0,0" Width="195" Height="185" Foreground="#FFFF6600" Click="Owens_Click">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
-                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfoList.xaml"/>
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
                         <Button.Background>
                             <ImageBrush ImageSource="./Resources/owens_hall.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="DietrickExpress" Content="DX" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,97,0,0" Height="185" Width="195" Foreground="#FFFF6600" Click="DietrickExpress_Click">
-                    	<i:Interaction.Triggers>
-                    		<i:EventTrigger EventName="Click">
-                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
-                    		</i:EventTrigger>
-                    	</i:Interaction.Triggers>
-                        <Button.Background>
-                            <ImageBrush ImageSource="./Resources/d2.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button x:Name="Squires" Content="Squires" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,342,0,0" Width="195" Height="185" Foreground="#FFFF6600" Click="Squires_Click">
+                    <Button x:Name="Squires" Content="Squires" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,97,0,0" Height="185" Width="195" Foreground="#FFFF6600" Click="DietrickExpress_Click">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
                     			<ec:NavigateToPageAction TargetPage="/DiningInfoList.xaml"/>
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
                         <Button.Background>
-                            <ImageBrush ImageSource="./Resources/squires_student_center.jpg"/>
+                            <ImageBrush ImageSource="squires_student_center.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="Deets" Content="Deets" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,342,0,0" Width="195" Height="185" Foreground="#FFFF6600" Click="Deets_Click">
+                    <Button x:Name="GLC" Content="GLC" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,342,0,0" Width="195" Height="185" Foreground="#FFFF6600" Click="Squires_Click">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
-                    			<ec:NavigateToPageAction TargetPage="/DiningInfo.xaml"/>
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfoList.xaml"/>
                     		</i:EventTrigger>
                     	</i:Interaction.Triggers>
                         <Button.Background>
-                            <ImageBrush ImageSource="./Resources/d2.jpg"/>
+                            <ImageBrush ImageSource="GLC.jpg"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="VetMed" Content="Vet Med Cafe" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,342,0,0" Width="195" Height="185" Foreground="#FFFF6600" Click="Deets_Click">
+                    	<i:Interaction.Triggers>
+                    		<i:EventTrigger EventName="Click">
+                    			<ec:NavigateToPageAction TargetPage="/DiningInfoList.xaml"/>
+                    		</i:EventTrigger>
+                    	</i:Interaction.Triggers>
+                        <Button.Background>
+                            <ImageBrush ImageSource="vet-med.jpg"/>
                         </Button.Background>
                     </Button>
                     <Image Margin="115,116,218,380" Source="/Resources/ribbon_start.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0.8">

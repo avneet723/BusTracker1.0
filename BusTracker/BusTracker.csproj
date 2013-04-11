@@ -390,6 +390,7 @@
     <Content Include="Resources\university_bookstore.jpg" />
     <Content Include="Resources\university_club.jpg" />
     <Resource Include="bus_bg.png" />
+    <Resource Include="GLC.jpg" />
     <Resource Include="Resources\unknown.gif" />
     <Content Include="Resources\vawter_hall.jpg" />
     <Content Include="Resources\virginia_tech.png" />
@@ -421,6 +422,8 @@
     <Content Include="Resources\x18.png" />
     <Content Include="Resources\x19.png" />
     <Resource Include="slide_back.png" />
+    <Resource Include="squires_student_center.jpg" />
+    <Resource Include="vet-med.jpg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
