@@ -45,16 +45,16 @@
         </StackPanel>
         <phone:Pivot x:Name="Info" HorizontalAlignment="Left" Height="597" Grid.Row="1" Title="" VerticalAlignment="Top" Width="480" Margin="10,0,-10,0" Loaded="Info_Loaded" >
         	<phone:PivotItem x:Name="Feed" CacheMode="{x:Null}" Header="Feed">
-                <StackPanel/>
+                <phone:WebBrowser Name="feedBrowser" HorizontalAlignment="Left" Height="469" Margin="12,130,0,0" Grid.Row="1" VerticalAlignment="Top" Width="458"/>
             </phone:PivotItem>
-        	<phone:PivotItem x:Name="Mentions" CacheMode="{x:Null}" Header="Mentions">
-        		<Grid/>
-        	</phone:PivotItem>
+        	<phone:PivotItem x:Name="Mentions" CacheMode="{x:Null}" Header="Mentions" HorizontalAlignment="Left" Margin="12,28,0,0" Width="0">
+                <Button Name="button_1" Click="button_click" Width="200" Height="200" Content="Go"></Button>
+            </phone:PivotItem>
         	<phone:PivotItem x:Name="Friends" Header="Friends">
         		<Grid/>
         	</phone:PivotItem>
         </phone:Pivot>
-        <phone:WebBrowser Name="feedBrowser" HorizontalAlignment="Left" Height="469" Margin="12,130,0,0" Grid.Row="1" VerticalAlignment="Top" Width="458"/>
+        
 
         <!--ContentPanel - place additional content here-->
 

@@ -21,12 +21,13 @@ namespace BusTracker
         public MainPage()
         {
             InitializeComponent();
-            feedBrowser.Navigate(new Uri("http://www.google.com"));
+            //feedBrowser.Navigate(new Uri("http://www.google.com"));
+            feedBrowser.Navigate(new Uri("https://twitter.com/search?q=virginia%20tech&src=typd"));
             // Sample code to localize the ApplicationBar
 
         }
-        /*
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        
+        private void button_click(object sender, RoutedEventArgs e)
         {
             ITwitterAuthorizer auth = SharedState.Authorizer;
 
@@ -36,7 +37,7 @@ namespace BusTracker
             }
             else
             {
-                /*var twitterCtx = new TwitterContext(auth);
+                var twitterCtx = new TwitterContext(auth);
                 
                 Console.WriteLine(twitterCtx.User);
 
@@ -49,15 +50,15 @@ namespace BusTracker
                  .SingleOrDefault();
 
                 if (user != null)
-                    results.Text = "User Name: " + user.ToString();
+                    System.Diagnostics.Debug.WriteLine("User Name: " + user.ToString());
                 else
                 {
-                    results.Text = "Finding...";
+                    System.Diagnostics.Debug.WriteLine("User Name: null");
                 }
             // /
             }
 
-        }*/
+        }
 
         private void Info_Loaded(object sender, RoutedEventArgs e)
         {
