@@ -63,7 +63,7 @@ namespace BusTracker
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
-            
+            CopyDatabase();
         }
 
         // Code to execute when the application is activated (brought to foreground)
@@ -220,6 +220,28 @@ namespace BusTracker
                 }
 
                 throw;
+            }
+        }
+
+        // Cope the database containing the dining hours to the local storage
+        private async void CopyDatabase()
+        {
+            bool isDatabaseExisting = false;
+
+            try
+            {
+                StorageFile storageFile = await ApplicationData.Current.LocalFolder.GetFileAsync("DiningHours.rdb");
+                isDatabaseExisting = true;
+            }
+            catch
+            {
+                isDatabaseExisting = false;
+            }
+
+            if (!isDatabaseExisting)
+            {
+                StorageFile databaseFile = await Package.Current.InstalledLocation.GetFileAsync("DiningHours.rdb");
+                await databaseFile.CopyAsync(ApplicationData.Current.LocalFolder);
             }
         }
     }
