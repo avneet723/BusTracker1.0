@@ -31,25 +31,9 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-        	<TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="543" Width="367">
-        		<Run Text="Phone: "/>
-        		<LineBreak/>
-        		<Run/>
-        		<LineBreak/>
-        		<Run/>
-        		<LineBreak/>
-        		<Run/>
-        		<LineBreak/>
-        		<Run/>
-        		<LineBreak/>
-        		<Run Text="Location: 735 University City Blvd"/>
-        		<LineBreak/>
-        		<Run Text=" "/>
-        		<LineBreak/>
-        		<Run Text="Hours:  (8am - 5pm)  M - F"/>
-        	</TextBlock>
+        	<TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="543" Width="367" Text="Phone:   Location: 735 University City Blvd   Hours:  (8am - 5pm)  M - F"/>
         	<Button x:Name="button1" Content="(540) 231 - 4357" HorizontalAlignment="Left" Margin="82,-16,0,0" VerticalAlignment="Top" Width="238" Height="80" FontSize="20" BorderBrush="{x:Null}"/>
-        	<TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="72" Margin="116,41,0,0" TextWrapping="Wrap" Text="540 231 4357" VerticalAlignment="Top" Width="162" FontSize="20" Opacity="0"/>
+        	<TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="72" Margin="113,254,0,0" TextWrapping="Wrap" Text="540 231 4357" VerticalAlignment="Top" Width="162" FontSize="20" Opacity="0"/>
 
         </Grid>
     </Grid>

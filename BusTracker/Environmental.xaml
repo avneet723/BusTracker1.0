@@ -19,17 +19,46 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+    	<Grid x:Name="LayoutRoot_Copy" Background="Transparent" Grid.RowSpan="2">
+    		<Grid.RowDefinitions>
+    			<RowDefinition Height="Auto"/>
+    			<RowDefinition Height="*"/>
+    		</Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
+    		<StackPanel Grid.Row="0" Margin="12,17,0,28">
+    			<TextBlock Margin="3,-7,6,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="58.667" Height="163" TextAlignment="Center">
+    				<Run Text="Environmental"/>
+    				<LineBreak/>
+    				<Run Text="Health and Safety "/>
+    			</TextBlock>
+    		</StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+    		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+    			<Grid.ColumnDefinitions>
+    				<ColumnDefinition Width="115*"/>
+    				<ColumnDefinition Width="113*"/>
+    			</Grid.ColumnDefinitions>
+    			<TextBlock HorizontalAlignment="Left" Margin="10,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="337" Width="348" Grid.ColumnSpan="2">
+    				<Run Text="Phone:"/>
+    				<LineBreak/>
+    				<Run/>
+    				<LineBreak/>
+    				<Run Text="Location: 459 Tech Center Drive"/>
+    				<LineBreak/>
+    				<Run/>
+    				<LineBreak/>
+    			</TextBlock>
+    			<Button Content="540-231-3600" HorizontalAlignment="Left" Margin="96,6,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="20" Grid.ColumnSpan="2"/>
+    			<TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="72" Margin="160,241,0,0" TextWrapping="Wrap" Text="540-231-3600" VerticalAlignment="Top" Width="198" Opacity="0" Grid.ColumnSpan="2"/>
 
-        </Grid>
+    		</Grid>
+    	</Grid>
+
+        <!--TitlePanel contains the name of the application and page title-->
+
+        <!--ContentPanel - place additional content here-->
     </Grid>
 
 </phone:PhoneApplicationPage>

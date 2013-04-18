@@ -19,17 +19,45 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+    	<Grid x:Name="LayoutRoot_Copy" Background="Transparent" Grid.RowSpan="2">
+    		<Grid.RowDefinitions>
+    			<RowDefinition Height="Auto"/>
+    			<RowDefinition Height="*"/>
+    		</Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
+    		<StackPanel Grid.Row="0" Margin="12,17,0,28">
+    			<TextBlock Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Height="163" FontSize="64" TextAlignment="Center">
+    				<Run Text="Schiffert Health "/>
+    				<LineBreak/>
+    				<Run Text="Center"/>
+    			</TextBlock>
+    		</StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+    		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+    			<TextBlock HorizontalAlignment="Left" Margin="10,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="337" Width="348">
+    				<Run Text="Phone:"/>
+    				<LineBreak/>
+    				<Run/>
+    				<LineBreak/>
+    				<Run Text="Location: 895 Washington Street"/>
+    				<LineBreak/>
+    				<Run/>
+    				<LineBreak/>
+    				<Run Text="Hours: (8am - 5pm) Monday - Friday"/>
+    				<LineBreak/>
+    				<Run Text="            (9am - 12pm) Saturday"/>
+    			</TextBlock>
+    			<Button Content="540-231-6444" HorizontalAlignment="Left" Margin="96,6,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="20"/>
+    			<TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="72" Margin="160,241,0,0" TextWrapping="Wrap" Text="540-231-6444" VerticalAlignment="Top" Width="198" Opacity="0"/>
 
-        </Grid>
+    		</Grid>
+    	</Grid>
+
+        <!--TitlePanel contains the name of the application and page title-->
+
+        <!--ContentPanel - place additional content here-->
     </Grid>
 
 </phone:PhoneApplicationPage>
