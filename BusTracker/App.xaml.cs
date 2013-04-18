@@ -9,6 +9,10 @@ using Microsoft.Phone.Shell;
 using BusTracker.Resources;
 using System.Net;
 using System.Threading;
+using System.IO;
+using System.IO.IsolatedStorage;
+using Windows.Storage;
+
 
 namespace BusTracker
 {
@@ -240,7 +244,7 @@ namespace BusTracker
 
             if (!isDatabaseExisting)
             {
-                StorageFile databaseFile = await Package.Current.InstalledLocation.GetFileAsync("DiningHours.rdb");
+                StorageFile databaseFile = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync("DiningHours.rdb");
                 await databaseFile.CopyAsync(ApplicationData.Current.LocalFolder);
             }
         }

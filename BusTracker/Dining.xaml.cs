@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using SQLite;
 
 namespace BusTracker
 {
@@ -19,9 +20,17 @@ namespace BusTracker
             DateTime now = DateTime.Now; // Use to Display Open or Close for a Dining Hall
         }
 
-        public void TurnerPlace_Click(object sender, RoutedEventArgs e)
+        public async void TurnerPlace_Click(object sender, RoutedEventArgs e)
         {
             PhoneApplicationService.Current.State["hall"] = "Turner Place"; // Save "Turner Place" into Current.State
+            SQLiteAsyncConnection conn = new SQLiteAsyncConnection("DiningHours.rdb");
+            var query = conn.Table<DiningHours>().Where(x => x.Building == "Turner Place");
+            var result = await query.ToListAsync();
+            foreach (var item in result)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("{0}: Monday - {1}", item.Vendor, item.Monday));
+            }
+
             NavigationService.Navigate(new Uri("/DiningInfoList.xaml", UriKind.Relative)); // Navigate to the DiningInfo Page
         }
 

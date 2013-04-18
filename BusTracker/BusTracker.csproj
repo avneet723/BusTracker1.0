@@ -74,7 +74,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Bin\ARM\Debug</OutputPath>
-    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -84,7 +84,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>Bin\ARM\Release</OutputPath>
-    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -94,11 +94,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DiningHours.cs" />
     <Compile Include="Dining.xaml.cs">
       <DependentUpon>Dining.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DiningInfo.xaml.cs">
-      <DependentUpon>DiningInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="DiningInfoList.xaml.cs">
       <DependentUpon>DiningInfoList.xaml</DependentUpon>
@@ -131,10 +129,6 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DiningInfo.xaml">
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="DiningInfoList.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -153,11 +147,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DiningHours.rdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Resources\DiningHours.rdb" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
@@ -461,9 +459,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="SQLite.WP80, Version=3.7.16.1">
-      <Name>SQLite for Windows Phone %28SQLite.WP80, Version=3.7.16.1%29</Name>
-    </SDKReference>
     <SDKReference Include="SQLite.WP80, Version=3.7.16.2">
       <Name>SQLite for Windows Phone %28SQLite.WP80, Version=3.7.16.2%29</Name>
     </SDKReference>

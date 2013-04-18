@@ -22,14 +22,9 @@
             <!--Panorama item one-->
             <phone:PanoramaItem x:Name="DiningHours" Header="Dining Hours" Height="607" Width="432">
                 <Grid Margin="0,0,-12,70">
-                    <TextBlock x:Name="hour1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="11,155,0,0" Width="149" Height="37"/>
-                    <TextBlock x:Name="block1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="210,155,0,0" Width="222" Height="82"/>
-                    <TextBlock x:Name="hour2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="11,221,0,0" Width="149" Height="36"/>
-                    <TextBlock x:Name="block2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="210,221,0,0" Width="222" Height="79"/>
-                    <TextBlock x:Name="hour3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="11,287,0,0" Width="149" Height="37"/>
-                    <TextBlock x:Name="block3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="210,287,0,0" Width="222" Height="86"/>
-                    <toolkit:DatePicker x:Name="datepicker" Value="{Binding dateTime, ElementName=diningHoursInfo, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="82" Width="460" Margin="-12,65,-16,0" ValueChanged="date_change"/>
-                    <toolkit:ListPicker x:Name="placepicker" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="432" SelectionChanged="hall_change" ExpansionMode="ExpansionAllowed"/>                        
+                    <TextBlock x:Name="hours" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="3,155,0,0" Width="429" Height="211"/>
+                    <toolkit:ListPicker x:Name="placepicker" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="432" SelectionChanged="hall_change" ExpansionMode="ExpansionAllowed"/>
+                    <toolkit:ListPicker x:Name="daypicker" HorizontalAlignment="Left" Margin="0,65,-2,0" VerticalAlignment="Top" Width="434" SelectionChanged="day_changed" ExpansionMode="ExpansionAllowed"/>                        
                 </Grid>
             </phone:PanoramaItem>
 
