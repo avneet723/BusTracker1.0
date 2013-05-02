@@ -70,8 +70,14 @@
         	</Button>
         	<Button Content="Info" HorizontalAlignment="Left" Margin="31,195,0,0" VerticalAlignment="Top" Height="180" Width="184"/>
         	<Button Content="Maps" HorizontalAlignment="Left" Margin="238,195,0,0" VerticalAlignment="Top" Height="180" Width="184"/>
-        	<Button Content="Weather" HorizontalAlignment="Left" Margin="31,380,0,0" VerticalAlignment="Top" Height="180" Width="184"/>
-        	<Button Content="Twitter" HorizontalAlignment="Left" Margin="238,380,0,0" VerticalAlignment="Top" Height="180" Width="184"/>
+            <Button Content="Weather" HorizontalAlignment="Left" Margin="31,380,0,0" VerticalAlignment="Top" Height="180" Width="184">
+            <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <ec:NavigateToPageAction TargetPage="/Weather.xaml" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Content="Twitter" HorizontalAlignment="Left" Margin="238,380,0,0" VerticalAlignment="Top" Height="180" Width="184"/>
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
