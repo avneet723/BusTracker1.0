@@ -10,6 +10,7 @@ namespace BusTracker
     class NutritionItems
     {
         public String Name { get; set; }
+        public String Location { get; set; }
         public String ServingSize { get; set; }
         public String Calories { get; set; }
         public String FatCalories { get; set; }

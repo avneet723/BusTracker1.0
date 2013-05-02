@@ -126,7 +126,7 @@
                             <ImageBrush ImageSource="./Resources/owens_hall.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="Squires" Content="Squires" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,97,0,0" Height="185" Width="195" Foreground="#FFFF6600" Click="DietrickExpress_Click">
+                    <Button x:Name="Squires" Content="Squires" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,97,0,0" Height="185" Width="195" Foreground="#FFFF6600" Click="Squires_Click">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
                     			<ec:NavigateToPageAction TargetPage="/DiningInfoList.xaml"/>
@@ -136,7 +136,7 @@
                             <ImageBrush ImageSource="squires_student_center.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="GLC" Content="GLC" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,342,0,0" Width="195" Height="185" Foreground="#FFFF6600" Click="Squires_Click">
+                    <Button x:Name="GLC" Content="GLC" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,342,0,0" Width="195" Height="185" Foreground="#FFFF6600" Click="GLC_Click">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
                     			<ec:NavigateToPageAction TargetPage="/DiningInfoList.xaml"/>
@@ -146,7 +146,7 @@
                             <ImageBrush ImageSource="GLC.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="VetMed" Content="Vet Med Cafe" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,342,0,0" Width="195" Height="185" Foreground="#FFFF6600" Click="Deets_Click">
+                    <Button x:Name="VetMed" Content="Vet Med Cafe" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,342,0,0" Width="195" Height="185" Foreground="#FFFF6600" Click="VetMedClick">
                     	<i:Interaction.Triggers>
                     		<i:EventTrigger EventName="Click">
                     			<ec:NavigateToPageAction TargetPage="/DiningInfoList.xaml"/>

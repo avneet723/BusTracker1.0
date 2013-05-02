@@ -18,8 +18,10 @@ namespace BusTracker
         String hall;
         String today;
         SQLiteAsyncConnection conn;
+        SQLiteAsyncConnection menuconn;
         String[] daysOfWeek = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
         List<DiningHours> vendorList = new List<DiningHours>();
+        List<NutritionItems> menuList = new List<NutritionItems>();
                                   
 
         public DiningInfoList()
@@ -28,10 +30,12 @@ namespace BusTracker
             // Load the Dining Hall that was saved into Current.State from Dining.xaml.cs
             this.hall = PhoneApplicationService.Current.State["hall"].ToString();
             diningTitle.Title = hall;
+            System.Diagnostics.Debug.WriteLine(hall);
             this.today = DateTime.Now.DayOfWeek.ToString();
             daypicker.ItemsSource = daysOfWeek;
             daypicker.SelectedItem = DateTime.Now.DayOfWeek.ToString();
             Query();
+            //MenuQuery();
         }
 
         public async void Query()
@@ -46,7 +50,22 @@ namespace BusTracker
                 this.vendorList.Add(item);
             }
             Fill_Hours(result[0]);
-            //System.Diagnostics.Debug.WriteLine("\nEndQuery\n");
+        }
+
+        public async void MenuQuery()
+        {
+            this.menuconn = new SQLiteAsyncConnection("nutrition.db");
+            var query = conn.Table<NutritionItems>().Where(x => x.Location == hall);
+            var result = await query.ToListAsync();
+
+            foreach (var item in result)
+            {
+                this.menuList.Add(item);
+            }
+            List<AlphaKeyGroup<NutritionItems>> DataSource = AlphaKeyGroup<NutritionItems>.CreateGroups(menuList,
+                System.Threading.Thread.CurrentThread.CurrentUICulture,
+                (NutritionItems s) => { return s.Name; }, true);
+            MenuList.ItemsSource = DataSource;
         }
 
         private void hall_change(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
