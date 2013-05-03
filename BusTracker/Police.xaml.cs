@@ -20,10 +20,19 @@ namespace BusTracker
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            PhoneCallTask phoneTask = new PhoneCallTask();
-            phoneTask.PhoneNumber = textBox1.Text;
-            phoneTask.DisplayName = "Virginia Tech Police";
-            phoneTask.Show();
+            try
+            {
+                PhoneCallTask phoneTask = new PhoneCallTask();
+                phoneTask.PhoneNumber = textBox1.Text;
+                phoneTask.DisplayName = "Virginia Tech Police";
+                phoneTask.Show();
+            }
+            catch (System.Reflection.TargetInvocationException excep)
+            {
+                //System.Diagnostics
+                throw (excep);
+            }
+
         }
     }
 }

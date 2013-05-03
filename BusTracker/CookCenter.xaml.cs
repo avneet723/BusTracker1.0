@@ -20,10 +20,26 @@ namespace BusTracker
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            PhoneCallTask phoneTask = new PhoneCallTask();
-            phoneTask.PhoneNumber = textBox1.Text;
-            phoneTask.DisplayName = "Cook Counceling Center";
-            phoneTask.Show();
+            try
+            {
+                PhoneCallTask phoneTask = new PhoneCallTask();
+                phoneTask.PhoneNumber = textBox1.Text;
+                phoneTask.DisplayName = "Cook Counceling Center";
+                phoneTask.Show();
+            }
+            catch (System.Reflection.TargetInvocationException excep)
+            {
+                //System.Diagnostics
+                throw (excep);
+            }
+
+
+
+        }
+
+        private void bu(object sender, System.Windows.RoutedEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
         }
     }
 }

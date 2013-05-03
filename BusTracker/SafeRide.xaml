@@ -38,8 +38,8 @@
         		<LineBreak/>
         		<Run Text="Hours: Dusk to Dawn"/>
         	</TextBlock>
-        	<Button Content="540-231-7233" HorizontalAlignment="Left" Margin="96,6,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="20"/>
-        	<TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="72" Margin="160,241,0,0" TextWrapping="Wrap" Text="540-231-7233" VerticalAlignment="Top" Width="198" Opacity="0"/>
+        	<Button Content="540-231-7233" HorizontalAlignment="Left" Margin="96,6,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="20" Tap="button1_Click"/>
+        	<TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="72" Margin="160,241,0,0" TextWrapping="Wrap" Text="5402317233" VerticalAlignment="Top" Width="198" Opacity="0"/>
 
         </Grid>
     </Grid>

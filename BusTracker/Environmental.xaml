@@ -50,8 +50,8 @@
     				<Run/>
     				<LineBreak/>
     			</TextBlock>
-    			<Button Content="540-231-3600" HorizontalAlignment="Left" Margin="96,6,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="20" Grid.ColumnSpan="2"/>
-    			<TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="72" Margin="160,241,0,0" TextWrapping="Wrap" Text="540-231-3600" VerticalAlignment="Top" Width="198" Opacity="0" Grid.ColumnSpan="2"/>
+    			<Button Content="540-231-3600" HorizontalAlignment="Left" Margin="96,6,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="20" Grid.ColumnSpan="2" Tap="button1_Click"/>
+    			<TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="72" Margin="160,241,0,0" TextWrapping="Wrap" Text="5402313600" VerticalAlignment="Top" Width="198" Opacity="0" Grid.ColumnSpan="2"/>
 
     		</Grid>
     	</Grid>

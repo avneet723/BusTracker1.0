@@ -20,10 +20,20 @@ namespace BusTracker
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            PhoneCallTask phoneTask = new PhoneCallTask();
-            phoneTask.PhoneNumber = textBox1.Text;
-            phoneTask.DisplayName = "Schiffert Health Center";
-            phoneTask.Show();
+
+            System.Diagnostics.Debug.WriteLine("here\n");
+            try
+            {
+                PhoneCallTask phoneTask = new PhoneCallTask();
+                phoneTask.PhoneNumber = "540231644";
+                phoneTask.DisplayName = "Schiffert Health Center";
+                phoneTask.Show();
+            }
+            catch (System.Net.WebException excep)
+            {
+                //System.Diagnostics
+                throw (excep);
+            }
         }
     }
 }
