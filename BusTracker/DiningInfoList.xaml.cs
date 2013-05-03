@@ -35,7 +35,7 @@ namespace BusTracker
             daypicker.ItemsSource = daysOfWeek;
             daypicker.SelectedItem = DateTime.Now.DayOfWeek.ToString();
             Query();
-            //MenuQuery();
+            MenuQuery();
         }
 
         public async void Query()
@@ -55,8 +55,8 @@ namespace BusTracker
         public async void MenuQuery()
         {
             this.menuconn = new SQLiteAsyncConnection("nutrition.db");
-            var query = conn.Table<NutritionItems>().Where(x => x.Location == hall);
-            var result = await query.ToListAsync();
+            var menuquery = menuconn.Table<NutritionItems>().Where(x => x.Location == "d2");
+            var result = await menuquery.ToListAsync();
 
             foreach (var item in result)
             {

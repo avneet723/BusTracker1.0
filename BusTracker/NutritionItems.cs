@@ -10,29 +10,31 @@ namespace BusTracker
     class NutritionItems
     {
         public String Name { get; set; }
-        public String Location { get; set; }
         public String ServingSize { get; set; }
-        public String Calories { get; set; }
-        public String FatCalories { get; set; }
-        public String TotalFat { get; set; }
-        public String TotalFatDV { get; set; }
-        public String SatFat { get; set; }
-        public String SatFatDV { get; set; }
-        public String TransFat { get; set; }
-        public String Cholesterol { get; set; }
-        public String CholesterolDV { get; set; }
-        public String Sodium { get; set; }
-        public String SodiumDV { get; set; }
-        public String TotalCarbs { get; set; }
-        public String TotalCardDV { get; set; }
-        public String DietaryFiber { get; set; }
-        public String DietaryFiberDV { get; set; }
-        public String Sugar { get; set; }
-        public String Protein { get; set; }
+        public int Calories { get; set; }
+        public int CaloriesFromFat { get; set; }
+        public int TotalFat { get; set; }
+        public String TotalFatDailyValue { get; set; }
+        public int SaturatedFat { get; set; }
+        public String SatFatDailyValue { get; set; }
+        public int TransFat { get; set; }
+        public int Cholesterol { get; set; }
+        public String CholesterolDalyValue { get; set; }
+        public int Sodium { get; set; }
+        public String SodiumDailyValue { get; set; }
+        public int TotalCarbs { get; set; }
+        public String TotalCarbsDailyValue { get; set; }
+        public int DietaryFiber { get; set; }
+        public String DietaryFiberDailyValue { get; set; }
+        public int Sugars { get; set; }
+        public int Protein { get; set; }
         public String VitaminA { get; set; }
         public String VitaminC { get; set; }
         public String Calcium { get; set; }
         public String Iron { get; set; }
+        public String Location { get; set; }
+        public String Ingredients { get; set; }
+        public String Allergens { get; set; }
 
     }
 
