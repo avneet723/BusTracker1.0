@@ -35,7 +35,7 @@ namespace BusTracker
             daypicker.ItemsSource = daysOfWeek;
             daypicker.SelectedItem = DateTime.Now.DayOfWeek.ToString();
             Query();
-            MenuQuery();
+            //MenuQuery();
         }
 
         public async void Query()
