@@ -8,131 +8,124 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Text.RegularExpressions;
+using SQLite;
 
 namespace BusTracker
 {
     public partial class DiningInfoList : PhoneApplicationPage
     {
 
-        String location;
-        HtmlAgilityPack.HtmlDocument HD;
-        String[] turnerLocations = { "1872 Fire Grill", "Atomic Pizzeria", "Bruegger's Bagels", "Dolci e Caffe", "Jamba Juice", 
-                                       "Origami Grill", "Origami Sushi", "Qdoba Mexican Grill", "Soup Garden" };
-        String[] squiresLocations = { "Sbarro", "Au Bon Pain - Squires Cafe", "Au Bon Pain - Squires Kiosk" };
+        String hall;
+        String today;
+        SQLiteAsyncConnection conn;
+        SQLiteAsyncConnection menuconn;
+        String[] daysOfWeek = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+        List<DiningHours> vendorList = new List<DiningHours>();
+        List<NutritionItems> menuList = new List<NutritionItems>();
+                                  
 
         public DiningInfoList()
         {
             InitializeComponent();
-            this.dateTime = DateTime.Now;
-
             // Load the Dining Hall that was saved into Current.State from Dining.xaml.cs
-            this.location = PhoneApplicationService.Current.State["hall"].ToString();
-            diningTitle.Title = location;
-
-            if (location.Contains("Turner"))
-            {
-                placepicker.ItemsSource = turnerLocations;
-            }
-            else if (location.Contains("Squires"))
-            {
-                placepicker.ItemsSource = squiresLocations;
-            }
-
-            this.HD = ((App)Application.Current).HD;
-            parseInfo(HD);
+            this.hall = PhoneApplicationService.Current.State["hall"].ToString();
+            diningTitle.Title = hall;
+            System.Diagnostics.Debug.WriteLine(hall);
+            this.today = DateTime.Now.DayOfWeek.ToString();
+            daypicker.ItemsSource = daysOfWeek;
+            daypicker.SelectedItem = DateTime.Now.DayOfWeek.ToString();
+            Query();
+            //MenuQuery();
         }
 
-        public DateTime dateTime { get; set; }
-
-        /**
-         * Performs the parsing of the dining hours information.
-         */
-        private void parseInfo(HtmlAgilityPack.HtmlDocument HD)
+        public async void Query()
         {
-
-            try // In case there is no available internet connection
+            this.conn = new SQLiteAsyncConnection("DiningHours.rdb");
+            var query = conn.Table<DiningHours>().Where(x => x.Building == hall);
+            var result = await query.ToListAsync();
+            
+            foreach (var item in result)
             {
-                bool diningHallFound = false;
-
-                location = placepicker.SelectedItem.ToString();
-                System.Diagnostics.Debug.WriteLine("Location: " + location);
-
-                foreach (var node in HD.DocumentNode.SelectNodes("//body//li")) // Examine each node ...
-                {
-                    var array = node.InnerText.Split(new[] { '\r', '\n' });
-
-                    var hours = "";
-
-                    if (node.InnerText.Contains(location)) // ... for the dining hall we want
-                    {
-                        hours = array[2]; // Hours are in the Second Index
-                        Regex r = new Regex(@"[\s]{2,}"); // Breakfast 7am-2pm              Lunch 2pm-5pm       Dinner 6pm-7pm    (There is a lot of Whitespace between each word)
-                        string[] timesSplit = r.Split(hours); // [Breakfast 7am-2pm] [Lunch 2pm-5pm] [Dinner 6pm-7pm] (We have created a string array and the Whitespace has been removed)
-
-                        if (!diningHallFound && node.InnerText.Contains("Breakfast") && node.InnerText.Contains("Lunch/Dinner") && node.InnerText.Contains(placepicker.SelectedItem.ToString()))
-                        {
-
-                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1].Replace("Breakfast", ""); // Breakfast Hours
-                            hour2.Text = "Lunch/Dinner Hours"; block2.Text = timesSplit[2].Replace("Lunch/Dinner", ""); // Lunch/Dinner Hours
-                            hour3.Text = ""; block3.Text = "";
-                            diningHallFound = true;
-                        }
-
-                        else if (!diningHallFound && node.InnerText.Contains("Regular Hours") && node.InnerText.Contains(placepicker.SelectedItem.ToString()))
-                        {
-
-                            hour1.Text = "Regular Hours"; block1.Text = timesSplit[1].Replace("Regular Hours", ""); // Regular Hours
-                            hour2.Text = ""; block2.Text = "";
-                            hour3.Text = ""; block3.Text = "";
-                            diningHallFound = true;
-                        }
-
-                        else if (!diningHallFound && node.InnerText.Contains("Lunch") && node.InnerText.Contains("Dinner") && node.InnerText.Contains(placepicker.SelectedItem.ToString()))
-                        {
-
-                            hour1.Text = "Lunch"; block1.Text = timesSplit[1].Replace("Lunch", ""); ; // Lunch
-                            hour2.Text = "Dinner"; block2.Text = timesSplit[2].Replace("Dinner", ""); // Dinner
-                            hour3.Text = ""; block3.Text = "";
-                            diningHallFound = true;
-                        }
-
-                        else if (!diningHallFound && node.InnerText.Contains("Breakfast") && node.InnerText.Contains("Lunch") && node.InnerText.Contains(placepicker.SelectedItem.ToString()))
-                        {
-                            hour1.Text = "Breakfast Hours"; block1.Text = timesSplit[1].Replace("Breakfast", ""); // Breakfast Hours
-                            hour2.Text = "Lunch"; block2.Text = timesSplit[2].Replace("Lunch", ""); ; // Lunch
-                            hour3.Text = ""; block3.Text = "";
-                            diningHallFound = true;
-                        }
-                    }
-
-                }
-
-                if (!diningHallFound)
-                {
-                    hour1.Text = "Closed!"; block1.Text = "Closed!"; // No Dining Halls are Open
-                    hour2.Text = ""; block2.Text = "";
-                    hour3.Text = ""; block3.Text = "";
-                }
-
+                placepicker.Items.Add(item.Vendor);
+                this.vendorList.Add(item);
             }
-
-            catch (System.Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            Fill_Hours(result[0]);
         }
 
-        private void date_change(object sender, Microsoft.Phone.Controls.DateTimeValueChangedEventArgs e)
+        public async void MenuQuery()
         {
-            //this.dateTime.Year = datepicker.Value.
-            ((App)Application.Current).download(dateTime);
-            this.HD = ((App)Application.Current).HD;
-            parseInfo(HD);
+            this.menuconn = new SQLiteAsyncConnection("nutrition.db");
+            var menuquery = menuconn.Table<NutritionItems>().Where(x => x.Location == "d2");
+            var result = await menuquery.ToListAsync();
+
+            foreach (var item in result)
+            {
+                this.menuList.Add(item);
+            }
+            List<AlphaKeyGroup<NutritionItems>> DataSource = AlphaKeyGroup<NutritionItems>.CreateGroups(menuList,
+                System.Threading.Thread.CurrentThread.CurrentUICulture,
+                (NutritionItems s) => { return s.Name; }, true);
+            MenuList.ItemsSource = DataSource;
         }
 
         private void hall_change(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            parseInfo(HD);
+
+            foreach (var item in vendorList)
+            {
+                if (item.Vendor.ToString() == placepicker.SelectedItem as String)
+                {
+                    Fill_Hours(item);
+                }
+            }
+        }
+
+        private void Fill_Hours(DiningHours obj)
+        {
+            String day = daypicker.SelectedItem.ToString();
+
+            switch (day)
+            {
+                case "Monday":
+                    hours.Text = obj.Monday;
+                    break;
+                case "Tuesday":
+                    hours.Text = obj.Tuesday;
+                    break;
+                case "Wednesday":
+                    hours.Text = obj.Wednesday;
+                    break;
+                case "Thursday":
+                    hours.Text = obj.Thursday;
+                    break;
+                case "Friday":
+                    hours.Text = obj.Friday;
+                    break;
+                case "Saturday":
+                    hours.Text = obj.Saturday;
+                    break;
+                case "Sunday":
+                    hours.Text = obj.Sunday;
+                    break;
+                default:
+                    hours.Text = "No Dining Hours Available";
+                    break;
+            }
+        }
+
+        private void day_changed(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("\nDay Changed\n");
+            //var query = conn.Table<DiningHours>().Where(x => x.Building == hall);
+            //var result = await query.ToListAsync();
+            //Fill_Hours(result[0]);
+            foreach (var item in vendorList)
+            {
+                if (item.Vendor.ToString() == placepicker.SelectedItem as String)
+                {
+                    Fill_Hours(item);
+                }
+            }
         }
     }
 }

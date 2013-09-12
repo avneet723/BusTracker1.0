@@ -25,7 +25,7 @@
     <ValidateXaml>true</ValidateXaml>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
-    <ExpressionBlendVersion>5.0.31017.0</ExpressionBlendVersion>
+    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,7 +53,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Bin\x86\Debug</OutputPath>
-    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -74,7 +74,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Bin\ARM\Debug</OutputPath>
-    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -84,33 +84,20 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>Bin\ARM\Release</OutputPath>
-    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AlphaKeyGroup.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ComputerConsult.xaml.cs">
-      <DependentUpon>ComputerConsult.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ContactInfo.xaml.cs">
-      <DependentUpon>ContactInfo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CookCenter.xaml.cs">
-      <DependentUpon>CookCenter.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DeanStudent.xaml.cs">
-      <DependentUpon>DeanStudent.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="DiningHours.cs" />
     <Compile Include="Dining.xaml.cs">
       <DependentUpon>Dining.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DiningInfo.xaml.cs">
-      <DependentUpon>DiningInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="DiningInfoList.xaml.cs">
       <DependentUpon>DiningInfoList.xaml</DependentUpon>
@@ -134,12 +121,16 @@
     <Compile Include="Nutrition.xaml.cs">
       <DependentUpon>Nutrition.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="ParkingServices.xaml.cs">
       <DependentUpon>ParkingServices.xaml</DependentUpon>
     </Compile>
     <Compile Include="Police.xaml.cs">
       <DependentUpon>Police.xaml</DependentUpon>
     </Compile>
+=======
+    <Compile Include="NutritionItems.cs" />
+>>>>>>> dining
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recreational.xaml.cs">
       <DependentUpon>Recreational.xaml</DependentUpon>
@@ -152,6 +143,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="SafeRide.xaml.cs">
       <DependentUpon>SafeRide.xaml</DependentUpon>
     </Compile>
@@ -161,6 +153,10 @@
     <Compile Include="WomensCenter.xaml.cs">
       <DependentUpon>WomensCenter.xaml</DependentUpon>
     </Compile>
+=======
+    <Compile Include="SQLite.cs" />
+    <Compile Include="SQLiteAsync.cs" />
+>>>>>>> dining
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -184,10 +180,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Dining.xaml">
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DiningInfo.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -249,11 +241,16 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DiningHours.rdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Resources\DiningHours.rdb" />
+    <None Include="Resources\nutrition.db" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
@@ -486,6 +483,8 @@
     <Content Include="Resources\university_bookstore.jpg" />
     <Content Include="Resources\university_club.jpg" />
     <Resource Include="bus_bg.png" />
+    <Resource Include="GLC.jpg" />
+    <Resource Include="NutritionFacts_Table.png" />
     <Resource Include="Resources\unknown.gif" />
     <Content Include="Resources\vawter_hall.jpg" />
     <Content Include="Resources\virginia_tech.png" />
@@ -517,6 +516,8 @@
     <Content Include="Resources\x18.png" />
     <Content Include="Resources\x19.png" />
     <Resource Include="slide_back.png" />
+    <Resource Include="squires_student_center.jpg" />
+    <Resource Include="vet-med.jpg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
@@ -525,6 +526,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Community.CsharpSqlite.WinPhone">
+      <HintPath>..\..\..\csharp-sqlite_3_7_7_1_71\Community.CsharpSqlite.WinPhone\Bin\Debug\Community.CsharpSqlite.WinPhone.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\sl4-windowsphone71\HtmlAgilityPack.dll</HintPath>
@@ -543,6 +547,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="maps_background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\sqlite-net-wp8\Sqlite.vcxproj">
+      <Project>{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}</Project>
+      <Name>Sqlite</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="SQLite.WP80, Version=3.7.16.2">
+      <Name>SQLite for Windows Phone %28SQLite.WP80, Version=3.7.16.2%29</Name>
+    </SDKReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

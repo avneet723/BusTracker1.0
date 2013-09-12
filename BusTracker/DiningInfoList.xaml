@@ -14,6 +14,49 @@
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="False"
     x:Name="diningHoursInfo">
+	
+	<phone:PhoneApplicationPage.Resources>
+	<DataTemplate x:Key="MenuListItemTemplate">
+      <StackPanel VerticalAlignment="Top">
+         <TextBlock FontWeight="Bold"  Text="{Binding Name}" />
+      </StackPanel>
+	</DataTemplate>
+
+	<DataTemplate x:Key="MenuListGroupHeaderTemplate">
+   <Border Background="Transparent" Padding="2">
+      <Border Background="{StaticResource PhoneAccentBrush}" BorderBrush="{StaticResource PhoneAccentBrush}" BorderThickness="2" Width="62" 
+         Height="62" Margin="0,0,18,0" HorizontalAlignment="Left">
+         <TextBlock Text="{Binding Key}" Foreground="{StaticResource PhoneForegroundBrush}" FontSize="48" Padding="6" 
+            FontFamily="{StaticResource PhoneFontFamilySemiLight}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+      </Border>
+    </Border>
+	</DataTemplate>
+
+	<phone:JumpListItemBackgroundConverter x:Key="BackgroundConverter"/>
+	<phone:JumpListItemForegroundConverter x:Key="ForegroundConverter"/>
+	<Style x:Key="MenuListJumpListStyle" TargetType="phone:LongListSelector">
+		<Setter Property="GridCellSize"  Value="113,113"/>
+		<Setter Property="LayoutMode" Value="Grid" />
+		<Setter Property="ItemTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<Border Background="{Binding Converter={StaticResource BackgroundConverter}}" Width="113" Height="113" Margin="6" >
+					<TextBlock Text="{Binding Key}" FontFamily="{StaticResource PhoneFontFamilySemiBold}" FontSize="48" Padding="6" 
+					Foreground="{Binding Converter={StaticResource ForegroundConverter}}" VerticalAlignment="Center"/>
+					</Border>
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<DataTemplate x:Name="placepickerItemTemplate">
+    <TextBlock Text="{Binding }" Margin="16 0 0 0" FontSize="46" FontFamily="{StaticResource PhoneFontFamilyLight}"/>
+	</DataTemplate>
+
+	<DataTemplate x:Name="daypickerItemTemplate">
+    <TextBlock Text="{Binding }" Margin="16 0 0 0" FontSize="46" FontFamily="{StaticResource PhoneFontFamilyLight}"/>
+	</DataTemplate>
+	</phone:PhoneApplicationPage.Resources>
     
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot">
@@ -22,19 +65,15 @@
             <!--Panorama item one-->
             <phone:PanoramaItem x:Name="DiningHours" Header="Dining Hours" Height="607" Width="432">
                 <Grid Margin="0,0,-12,70">
-                    <TextBlock x:Name="hour1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="11,155,0,0" Width="149" Height="37"/>
-                    <TextBlock x:Name="block1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="210,155,0,0" Width="222" Height="82"/>
-                    <TextBlock x:Name="hour2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="11,221,0,0" Width="149" Height="36"/>
-                    <TextBlock x:Name="block2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="210,221,0,0" Width="222" Height="79"/>
-                    <TextBlock x:Name="hour3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="11,287,0,0" Width="149" Height="37"/>
-                    <TextBlock x:Name="block3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="210,287,0,0" Width="222" Height="86"/>
-                    <toolkit:DatePicker x:Name="datepicker" Value="{Binding dateTime, ElementName=diningHoursInfo, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="82" Width="460" Margin="-12,65,-16,0" ValueChanged="date_change"/>
-                    <toolkit:ListPicker x:Name="placepicker" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="432" SelectionChanged="hall_change" ExpansionMode="ExpansionAllowed"/>                        
+                    <TextBlock x:Name="hours" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="3,155,0,0" Width="429" Height="211"/>
+                    <toolkit:ListPicker x:Name="placepicker" FullModeItemTemplate="{StaticResource placepickerItemTemplate}" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="432" SelectionChanged="hall_change" ExpansionMode="FullScreenOnly"/>
+                    <toolkit:ListPicker x:Name="daypicker" FullModeItemTemplate="{StaticResource daypickerItemTemplate}" HorizontalAlignment="Left" Margin="0,65,-2,0" VerticalAlignment="Top" Width="434" SelectionChanged="day_changed" ExpansionMode="ExpansionAllowed"/>                        
                 </Grid>
             </phone:PanoramaItem>
 
             <phone:PanoramaItem x:Name="Menu" Header="Menu">
-                <phone:LongListSelector x:Name="MenuList"/>
+                <phone:LongListSelector x:Name="MenuList" JumpListStyle="{StaticResource MenuListJumpListStyle}" GroupHeaderTemplate="{StaticResource MenuListGroupHeaderTemplate}" ItemTemplate="{StaticResource MenuListItemTemplate}" 
+				LayoutMode="List" IsGroupingEnabled="True" HideEmptyGroups="True"/>
             </phone:PanoramaItem>
 
         </phone:Panorama>
